@@ -77,6 +77,9 @@ header.top h1{font-size:1.35rem;margin:0;line-height:1.2}
 .bar>span{display:block;height:100%;background:var(--accent)}
 .stat input[type=number]{width:80px;padding:3px 6px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
 .thresholds{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.thr-list{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:4px;font-size:.84rem}
+.thr-list li{display:flex;gap:6px;align-items:baseline}.thr-list .thr{flex:none}
+.thr-for{color:var(--muted)}.thr-list li.ok .thr-for{color:var(--text)}
 .thr{font-size:.78rem;border-radius:99px;padding:1px 8px;border:1px solid var(--border)}
 .thr.ok{color:var(--ok);border-color:var(--ok)}
 .muted{color:var(--muted)}
@@ -1151,133 +1154,6 @@ PLANNER_DATASETS.push({
 });
 </script>
 <!-- =====================================================================
-     MATRIZ 2013.1 — Engenharia Elétrica
-     ===================================================================== -->
-<script id="dataset-ee-2013.1">
-PLANNER_DATASETS.push({
-  id: "ee-2013.1",
-  CURRICULUM: {
-  app: "planejador-ee-ufu",
-  matriz: "2013.1",
-  curso: "Engenharia Elétrica – UFU",
-  grupo: "Engenharia Elétrica",
-  short: "Engenharia Elétrica",
-  tag: "Engenharia Elétrica — Matriz 2013.1",
-  versao: "Versão curricular 2013-1",
-  fonte: "Fluxograma 2013-1 (FEELT/UFU), cargas semanais × 15",
-  ttNote: "associadas pelo nome; confirme a equivalência",
-  requirements: {
-    optativasMinH: 120,
-    extensaoMinH: 0,
-    aacH: 180,
-    totalH: 3810,
-    enade: true
-  },
-  texts: {
-    obr: "Os “Componentes Curriculares Optativos I e II” (8º e 9º períodos, 4 h semanais cada, exigência de 2300 h) estão representados pelo mínimo de 120 h em optativas.",
-    opt: "{n} componentes do bloco \"Componentes Curriculares Optativos\" do fluxograma (nº 67 a 79) · sem período definido · cada um exige 2300 h · mínimo de 120 h (Optativos I e II). Outras disciplinas aprovadas pelo colegiado: informe as horas em \"Seu progresso\"."
-  },
-  courses: [
-    // 1º período
-    {n:1, p:1, name:"Álgebra Matricial e Geometria Analítica", t:90, pr:0, pre:[], co:[]},
-    {n:2, p:1, name:"Funções de Variáveis Reais I", t:90, pr:0, pre:[], co:[]},
-    {n:3, p:1, name:"Expressão Gráfica", t:60, pr:0, pre:[], co:[]},
-    {n:4, p:1, name:"Introdução à Tecnologia da Computação", t:30, pr:30, pre:[], co:[]},
-    {n:5, p:1, name:"Introdução à Engenharia de Sistemas de Energia Elétrica", t:30, pr:0, pre:[], co:[]},
-    {n:6, p:1, name:"Química Geral", t:30, pr:15, pre:[], co:[]},
-    // 2º período
-    {n:7, p:2, name:"Estatística e Probabilidade", t:30, pr:0, pre:[], co:[]},
-    {n:8, p:2, name:"Funções de Variáveis Reais II", t:90, pr:0, pre:[], co:[]},
-    {n:9, p:2, name:"Métodos Numéricos", t:45, pr:15, pre:[], co:[]},
-    {n:10, p:2, name:"Métodos e Técnicas de Programação", t:30, pr:60, pre:[], co:[]},
-    {n:11, p:2, name:"Física I", t:60, pr:0, pre:[], co:[12]},
-    {n:12, p:2, name:"Experimental de Física I", t:0, pr:30, pre:[], co:[11]},
-    {n:13, p:2, name:"Mecânica dos Sólidos", t:30, pr:0, pre:[], co:[]},
-    // 3º período
-    {n:14, p:3, name:"Métodos Matemáticos", t:90, pr:0, pre:[], co:[]},
-    {n:15, p:3, name:"Circuitos Elétricos I", t:75, pr:0, pre:[], co:[16]},
-    {n:16, p:3, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[], co:[15]},
-    {n:17, p:3, name:"Ciência e Tecnologia dos Materiais", t:45, pr:0, pre:[], co:[18]},
-    {n:18, p:3, name:"Experimental de Ciência e Tecnologia dos Materiais", t:0, pr:15, pre:[], co:[17]},
-    {n:19, p:3, name:"Engenharia de Software", t:30, pr:30, pre:[], co:[]},
-    {n:20, p:3, name:"Física II", t:60, pr:0, pre:[], co:[21]},
-    {n:21, p:3, name:"Experimental de Física II", t:0, pr:30, pre:[], co:[20]},
-    {n:22, p:3, name:"Sinais e Sistemas I", t:30, pr:0, pre:[], co:[]},
-    // 4º período
-    {n:23, p:4, name:"Eletrônica Analógica I", t:60, pr:0, pre:[], co:[24]},
-    {n:24, p:4, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[], co:[23]},
-    {n:25, p:4, name:"Circuitos Elétricos II", t:60, pr:0, pre:[], co:[26]},
-    {n:26, p:4, name:"Experimental de Circuitos Elétricos II", t:0, pr:30, pre:[], co:[25]},
-    {n:27, p:4, name:"Eletromagnetismo", t:60, pr:15, pre:[], co:[]},
-    {n:28, p:4, name:"Fenômenos de Transporte", t:60, pr:0, pre:[], co:[]},
-    {n:29, p:4, name:"Física III", t:60, pr:0, pre:[], co:[]},
-    {n:30, p:4, name:"Sinais e Sistemas II", t:60, pr:0, pre:[], co:[]},
-    // 5º período
-    {n:31, p:5, name:"Eletrônica Analógica II", t:30, pr:0, pre:[], co:[32]},
-    {n:32, p:5, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[], co:[31]},
-    {n:33, p:5, name:"Eletrônica Digital", t:30, pr:0, pre:[], co:[34]},
-    {n:34, p:5, name:"Experimental de Eletrônica Digital", t:0, pr:30, pre:[], co:[33]},
-    {n:35, p:5, name:"Conversão de Energia Elétrica", t:45, pr:0, pre:[], co:[36]},
-    {n:36, p:5, name:"Experimental de Conversão de Energia Elétrica", t:0, pr:30, pre:[], co:[35]},
-    {n:37, p:5, name:"Fontes Alternativas de Energia I", t:60, pr:0, pre:[], co:[]},
-    {n:38, p:5, name:"Projeto Interdisciplinar em Sistemas de Energia Elétrica", t:0, pr:30, pre:[], co:[]},
-    {n:39, p:5, name:"Sistemas Realimentados", t:60, pr:0, pre:[], co:[40]},
-    {n:40, p:5, name:"Experimental de Sistemas Realimentados", t:0, pr:30, pre:[], co:[39]},
-    // 6º período
-    {n:41, p:6, name:"Distribuição de Energia Elétrica", t:60, pr:0, pre:[], co:[]},
-    {n:42, p:6, name:"Microprocessadores", t:30, pr:30, pre:[], co:[]},
-    {n:43, p:6, name:"Instalações Elétricas", t:30, pr:0, pre:[], co:[44]},
-    {n:44, p:6, name:"Experimental de Instalações Elétricas", t:0, pr:30, pre:[], co:[43]},
-    {n:45, p:6, name:"Máquinas Elétricas", t:60, pr:30, pre:[], co:[]},
-    {n:46, p:6, name:"Eletrônica de Potência", t:45, pr:15, pre:[], co:[]},
-    {n:47, p:6, name:"Transformadores", t:30, pr:15, pre:[], co:[]},
-    // 7º período
-    {n:48, p:7, name:"Instalações Industriais", t:45, pr:15, pre:[], co:[]},
-    {n:49, p:7, name:"Análise de Sistemas Elétricos", t:60, pr:0, pre:[], co:[]},
-    {n:50, p:7, name:"Transmissão de Energia Elétrica", t:45, pr:15, pre:[], co:[]},
-    {n:51, p:7, name:"Fontes Alternativas de Energia II", t:60, pr:0, pre:[], co:[]},
-    {n:52, p:7, name:"Eficiência Energética", t:30, pr:30, pre:[], co:[]},
-    {n:53, p:7, name:"Usinas e Subestações", t:60, pr:0, pre:[], co:[]},
-    // 8º período
-    {n:55, p:8, name:"Proteção de Sistemas Elétricos", t:60, pr:0, pre:[], co:[]},
-    {n:56, p:8, name:"Acionamentos", t:60, pr:30, pre:[], co:[]},
-    {n:57, p:8, name:"Metrologia e Instrumentação", t:45, pr:15, pre:[], co:[]},
-    {n:58, p:8, name:"NR10: Segurança em Eletricidade", t:60, pr:0, pre:[], co:[]},
-    {n:59, p:8, name:"Dinâmica de Sistemas Elétricos", t:60, pr:0, pre:[], co:[]},
-    // 9º período
-    {n:61, p:9, name:"Administração", t:60, pr:0, pre:[], co:[], minH:2500},
-    {n:62, p:9, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[], minH:2500},
-    {n:63, p:9, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[], minH:2500},
-    {n:64, p:9, name:"TCC em Sistemas de Energia Elétrica", t:0, pr:30, pre:[], co:[], minH:2500},
-    {n:65, p:9, name:"Qualidade da Energia Elétrica", t:60, pr:0, pre:[], co:[]},
-    // 10º período
-    {n:66, p:10, name:"Estágio Obrigatório em Sistemas de Energia Elétrica", t:0, pr:180, pre:[], co:[], minH:2300},
-    // Componentes curriculares optativos
-    {n:67, p:null, name:"Língua Brasileira de Sinais – LIBRAS I", t:30, pr:30, pre:[], co:[], minH:2300},
-    {n:68, p:null, name:"Elementos Finitos", t:30, pr:30, pre:[], co:[], minH:2300},
-    {n:69, p:null, name:"Eletrônica de Potência para Sistemas Fotovoltaicos", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:70, p:null, name:"Empreendedorismo", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:71, p:null, name:"Fontes Alternativas de Energia III", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:72, p:null, name:"Projeto de Máquinas Elétricas", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:73, p:null, name:"Transitórios Eletromagnéticos", t:45, pr:15, pre:[], co:[], minH:2300},
-    {n:74, p:null, name:"Transmissão em Corrente Contínua", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:75, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia I", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:76, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia II", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:77, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia III", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:78, p:null, name:"Aterramentos em Sistemas Elétricos", t:30, pr:30, pre:[], co:[], minH:2300},
-    {n:79, p:null, name:"Manutenção em Sistemas Industriais", t:60, pr:0, pre:[], co:[], minH:2300}
-  ],
-  notes: [
-    "Fluxograma 2013-1: as cargas são semanais e foram convertidas em horas no semestre multiplicando por 15 (4 h semanais = 60 h). As Atividades Complementares (8 h semanais) viraram 120 h.",
-    "Nenhum pré-requisito está indicado no fluxograma 2013-1; há correquisitos e exigências de carga horária mínima.",
-    "O Projeto Interdisciplinar em Sistemas de Energia Elétrica (38) não traz exigência de carga horária no fluxograma."
-]
-}
-});
-</script>
-
-
-<!-- =====================================================================
      MATRIZ 2020.1 — Engenharia de Controle e Automação (dados do planejador anterior)
      ===================================================================== -->
 <script id="dataset-eca-2020.1">
@@ -1405,269 +1281,6 @@ PLANNER_DATASETS.push({
 }
 });
 </script>
-<!-- =====================================================================
-     MATRIZ 2013.2 — Engenharia de Controle e Automação
-     ===================================================================== -->
-<script id="dataset-eca-2013.2">
-PLANNER_DATASETS.push({
-  id: "eca-2013.2",
-  CURRICULUM: {
-  app: "planejador-eca-ufu",
-  matriz: "2013.2",
-  curso: "Engenharia de Controle e Automação – UFU",
-  grupo: "Engenharia de Controle e Automação",
-  short: "Engenharia de Controle e Automação",
-  tag: "Engenharia de Controle e Automação — Matriz 2013.2",
-  versao: "Versão curricular 2013-2",
-  fonte: "Fluxograma 2013-2 (FEELT/UFU), cargas semanais × 15",
-  ttNote: "associadas pelo nome; confirme a equivalência",
-  requirements: {
-    optativasMinH: 120,
-    extensaoMinH: 0,
-    aacH: 120,
-    totalH: 3855,
-    enade: true
-  },
-  texts: {
-    obr: "Os “Componentes Curriculares Optativos I e II” (7º e 9º períodos, 4 h semanais cada, exigência de 2000 h) estão representados pelo mínimo de 120 h em optativas.",
-    opt: "{n} componentes do bloco \"Componentes Curriculares Optativos\" do fluxograma (nº 68 a 80) · sem período definido · cada um exige 2000 h · mínimo de 120 h (Optativos I e II). Outras disciplinas aprovadas pelo colegiado: informe as horas em \"Seu progresso\"."
-  },
-  courses: [
-    // 1º período
-    {n:1, p:1, name:"Álgebra Matricial e Geometria Analítica", t:90, pr:0, pre:[], co:[]},
-    {n:2, p:1, name:"Funções de Variáveis Reais I", t:90, pr:0, pre:[], co:[]},
-    {n:3, p:1, name:"Expressão Gráfica", t:60, pr:0, pre:[], co:[]},
-    {n:4, p:1, name:"Introdução à Tecnologia da Computação", t:30, pr:30, pre:[], co:[]},
-    {n:5, p:1, name:"Introdução à Engenharia de Controle e Automação", t:30, pr:0, pre:[], co:[]},
-    {n:6, p:1, name:"Química Geral", t:30, pr:15, pre:[], co:[]},
-    // 2º período
-    {n:7, p:2, name:"Estatística e Probabilidade", t:30, pr:0, pre:[], co:[]},
-    {n:8, p:2, name:"Funções de Variáveis Reais II", t:90, pr:0, pre:[], co:[]},
-    {n:9, p:2, name:"Métodos Numéricos", t:45, pr:15, pre:[], co:[]},
-    {n:10, p:2, name:"Métodos e Técnicas de Programação", t:30, pr:60, pre:[], co:[]},
-    {n:11, p:2, name:"Física I", t:60, pr:0, pre:[], co:[12]},
-    {n:12, p:2, name:"Experimental de Física I", t:0, pr:30, pre:[], co:[11]},
-    {n:13, p:2, name:"Mecânica dos Sólidos", t:30, pr:0, pre:[], co:[]},
-    // 3º período
-    {n:14, p:3, name:"Métodos Matemáticos", t:90, pr:0, pre:[], co:[]},
-    {n:15, p:3, name:"Circuitos Elétricos I", t:75, pr:0, pre:[], co:[16]},
-    {n:16, p:3, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[], co:[15]},
-    {n:17, p:3, name:"Ciência e Tecnologia dos Materiais", t:45, pr:0, pre:[], co:[18]},
-    {n:18, p:3, name:"Experimental de Ciência e Tecnologia dos Materiais", t:0, pr:15, pre:[], co:[17]},
-    {n:19, p:3, name:"Engenharia de Software", t:30, pr:30, pre:[], co:[]},
-    {n:20, p:3, name:"Física II", t:60, pr:0, pre:[], co:[21]},
-    {n:21, p:3, name:"Experimental de Física II", t:0, pr:30, pre:[], co:[20]},
-    {n:22, p:3, name:"Sinais e Sistemas I", t:30, pr:0, pre:[], co:[]},
-    // 4º período
-    {n:23, p:4, name:"Eletrônica Analógica I", t:60, pr:0, pre:[], co:[24]},
-    {n:24, p:4, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[], co:[23]},
-    {n:25, p:4, name:"Circuitos Elétricos II", t:60, pr:0, pre:[], co:[26]},
-    {n:26, p:4, name:"Experimental de Circuitos Elétricos II", t:0, pr:30, pre:[], co:[25]},
-    {n:27, p:4, name:"Eletromagnetismo", t:60, pr:15, pre:[], co:[]},
-    {n:28, p:4, name:"Fenômenos de Transporte", t:60, pr:0, pre:[], co:[]},
-    {n:29, p:4, name:"Física III", t:60, pr:0, pre:[], co:[]},
-    {n:30, p:4, name:"Sinais e Sistemas II", t:60, pr:0, pre:[], co:[]},
-    // 5º período
-    {n:31, p:5, name:"Eletrônica Analógica II", t:30, pr:0, pre:[], co:[32]},
-    {n:32, p:5, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[], co:[31]},
-    {n:33, p:5, name:"Eletrônica Digital", t:30, pr:0, pre:[], co:[34]},
-    {n:34, p:5, name:"Experimental de Eletrônica Digital", t:0, pr:30, pre:[], co:[33]},
-    {n:35, p:5, name:"Conversão de Energia e Máquinas Elétricas", t:60, pr:0, pre:[], co:[36]},
-    {n:36, p:5, name:"Experimental de Conversão de Energia e Máquinas Elétricas", t:0, pr:30, pre:[], co:[35]},
-    {n:37, p:5, name:"Processos de Fabricação Mecânica", t:60, pr:0, pre:[], co:[]},
-    {n:38, p:5, name:"Sistemas de Controle Hidráulicos e Pneumáticos", t:45, pr:15, pre:[], co:[]},
-    {n:39, p:5, name:"Sistemas Realimentados", t:60, pr:0, pre:[], co:[40]},
-    {n:40, p:5, name:"Experimental de Sistemas Realimentados", t:0, pr:30, pre:[], co:[39]},
-    // 6º período
-    {n:41, p:6, name:"Instrumentação Industrial", t:60, pr:15, pre:[], co:[]},
-    {n:42, p:6, name:"Sistemas Embarcados I", t:30, pr:30, pre:[], co:[]},
-    {n:43, p:6, name:"Instalações Elétricas", t:30, pr:0, pre:[], co:[44]},
-    {n:44, p:6, name:"Experimental de Instalações Elétricas", t:0, pr:30, pre:[], co:[43]},
-    {n:45, p:6, name:"Fabricação Assistida por Computador", t:30, pr:15, pre:[], co:[]},
-    {n:46, p:6, name:"Controle Multivariável, Não Linear e Inteligente", t:60, pr:15, pre:[], co:[]},
-    {n:47, p:6, name:"Química Tecnológica", t:45, pr:0, pre:[], co:[48]},
-    {n:48, p:6, name:"Experimental de Química Tecnológica", t:0, pr:15, pre:[], co:[47]},
-    // 7º período
-    {n:49, p:7, name:"Projeto Interdisciplinar para Controle e Automação", t:0, pr:30, pre:[], co:[], minH:2300},
-    {n:50, p:7, name:"Firmware e Hardware de Dispositivos Industriais", t:30, pr:30, pre:[], co:[]},
-    {n:51, p:7, name:"Controladores Lógicos Programáveis (CLPs) e Dispositivos Industriais", t:60, pr:30, pre:[], co:[]},
-    {n:52, p:7, name:"Redes Industriais para Controle e Automação I", t:60, pr:15, pre:[], co:[]},
-    {n:53, p:7, name:"Controle Aplicado em Automação de Processos Contínuos", t:45, pr:30, pre:[], co:[]},
-    // 8º período
-    {n:55, p:8, name:"Eletrônica Industrial e Acionamentos", t:60, pr:30, pre:[], co:[]},
-    {n:56, p:8, name:"Sistemas Distribuídos para Controle e Automação", t:45, pr:15, pre:[], co:[]},
-    {n:57, p:8, name:"Sistemas Supervisórios para Controle e Automação", t:30, pr:30, pre:[], co:[]},
-    {n:58, p:8, name:"Redes Industriais para Controle e Automação II", t:60, pr:15, pre:[], co:[]},
-    {n:59, p:8, name:"Modelagem e Simulação de Sistemas a Eventos Discretos", t:45, pr:15, pre:[], co:[]},
-    {n:60, p:8, name:"Identificação Experimental de Sistemas para Controle e Automação", t:60, pr:15, pre:[], co:[]},
-    // 9º período
-    {n:61, p:9, name:"Fontes Alternativas de Energia I", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:62, p:9, name:"Administração", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:63, p:9, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:64, p:9, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:65, p:9, name:"Trabalho de Conclusão de Curso (TCC) para Controle e Automação", t:0, pr:30, pre:[], co:[], minH:2800},
-    // 10º período
-    {n:67, p:10, name:"Estágio Obrigatório para Controle e Automação", t:0, pr:180, pre:[], co:[], minH:2300},
-    // Componentes curriculares optativos
-    {n:68, p:null, name:"Língua Brasileira de Sinais – LIBRAS I", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:69, p:null, name:"Elementos Finitos", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:70, p:null, name:"Automação Residencial e Comercial", t:45, pr:15, pre:[], co:[], minH:2000},
-    {n:71, p:null, name:"Sistemas Embarcados II", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:72, p:null, name:"Tópicos Especiais em Engenharia de Controle e Automação I", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:73, p:null, name:"Tópicos Especiais em Engenharia de Controle e Automação II", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:74, p:null, name:"Tópicos Especiais em Engenharia de Controle e Automação III", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:75, p:null, name:"Robótica", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:76, p:null, name:"Instalações Industriais", t:45, pr:15, pre:[], co:[], minH:2000},
-    {n:77, p:null, name:"Eficiência Energética", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:78, p:null, name:"NR10: Segurança em Eletricidade", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:79, p:null, name:"Aterramentos em Sistemas Elétricos", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:80, p:null, name:"Manutenção em Sistemas Industriais", t:60, pr:0, pre:[], co:[], minH:2000}
-  ],
-  notes: [
-    "Fluxograma 2013-2: as cargas são semanais e foram convertidas em horas no semestre multiplicando por 15 (4 h semanais = 60 h). As Atividades Complementares (8 h semanais) viraram 120 h.",
-    "Nenhum pré-requisito está indicado no fluxograma 2013-2; há correquisitos e exigências de carga horária mínima.",
-    "Nomes abreviados no fluxograma foram escritos por extenso (ex.: \"Controle Aplicado em Aut. de Proc. Contínuos\")."
-]
-}
-});
-</script>
-
-
-<!-- =====================================================================
-     MATRIZ 2016.1 — DADOS CURRICULARES
-     Curso: Engenharia de Computação – UFU – Matriz 2016.1
-     Fonte: fluxograma "Quadro de disciplinas – fluxograma" da versão curricular 2016-1 (FEELT/UFU), com cargas semanais convertidas em horas (× 15).
-     - n: número do componente no fluxograma (identificador único = "C"+n)
-     - p: período recomendado (null = optativa, sem período)
-     - t / pr: carga horária teórica / prática (h). Total = t + pr.
-     - pre: pré-requisitos (todos obrigatórios, lógica E). Para alternativas
-            (lógica OU) use {anyOf:[a,b]}; o fluxograma não tem esse caso.
-     - co: correquisitos.
-     - minH: carga horária mínima integralizada em componentes curriculares.
-     - kind: "obrigatoria" | "extensao" | "optativa"
-     Para corrigir um dado, edite apenas este bloco.
-     ===================================================================== -->
-<script id="dataset-ecp-2016.1">
-PLANNER_DATASETS.push({
-  id: "ecp-2016.1",
-  CURRICULUM: {
-  app: "planejador-ecp-ufu",
-  matriz: "2016.1",
-  curso: "Engenharia de Computação – UFU",
-  grupo: "Engenharia de Computação",
-  short: "Engenharia de Computação",
-  tag: "Engenharia de Computação — Matriz 2016.1",
-  versao: "Versão curricular 2016-1",
-  ttNote: "associadas pelo nome; confirme a equivalência",
-  fonte: "Fluxograma 2016-1 (FEELT/UFU)",
-  requirements: {
-    optativasMinH: 120,
-    extensaoMinH: 0,
-    aacH: 180,
-    totalH: 3810,
-    enade: true
-  },
-  texts: {
-    obr: "Os “Componentes Curriculares Optativos I e II” (6º e 7º períodos, 4 h semanais cada, exigência de 2000 h) estão representados pelo mínimo de 120 h em optativas.",
-    opt: "{n} componentes do bloco \"Componentes Curriculares Optativos\" do fluxograma (nº 66 a 75) · sem período definido · cada um exige 2000 h · mínimo de 120 h (Optativos I e II). Outras disciplinas aprovadas pelo colegiado: informe as horas em \"Seu progresso\"."
-  },
-  courses: [
-    // 1º período
-    {n:1, p:1, name:"Álgebra Matricial e Geometria Analítica", t:90, pr:0, pre:[], co:[]},
-    {n:2, p:1, name:"Funções de Variáveis Reais I", t:90, pr:0, pre:[], co:[]},
-    {n:3, p:1, name:"Expressão Gráfica", t:60, pr:0, pre:[], co:[]},
-    {n:4, p:1, name:"Introdução à Tecnologia da Computação", t:30, pr:30, pre:[], co:[]},
-    {n:5, p:1, name:"Introdução à Engenharia de Computação", t:30, pr:0, pre:[], co:[]},
-    {n:6, p:1, name:"Química Geral", t:30, pr:15, pre:[], co:[]},
-    // 2º período
-    {n:7, p:2, name:"Estatística e Probabilidade", t:30, pr:0, pre:[], co:[]},
-    {n:8, p:2, name:"Funções de Variáveis Reais II", t:90, pr:0, pre:[], co:[]},
-    {n:9, p:2, name:"Métodos Numéricos", t:45, pr:15, pre:[], co:[]},
-    {n:10, p:2, name:"Métodos e Técnicas de Programação", t:30, pr:60, pre:[], co:[]},
-    {n:11, p:2, name:"Física I", t:60, pr:0, pre:[], co:[12]},
-    {n:12, p:2, name:"Experimental de Física I", t:0, pr:30, pre:[], co:[11]},
-    {n:13, p:2, name:"Mecânica dos Sólidos", t:30, pr:0, pre:[], co:[]},
-    // 3º período
-    {n:14, p:3, name:"Métodos Matemáticos", t:90, pr:0, pre:[], co:[]},
-    {n:15, p:3, name:"Circuitos Elétricos I", t:75, pr:0, pre:[], co:[16]},
-    {n:16, p:3, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[], co:[15]},
-    {n:17, p:3, name:"Ciência e Tecnologia dos Materiais", t:45, pr:0, pre:[], co:[18]},
-    {n:18, p:3, name:"Experimental de Ciência e Tecnologia dos Materiais", t:0, pr:15, pre:[], co:[17]},
-    {n:19, p:3, name:"Engenharia de Software", t:30, pr:30, pre:[], co:[]},
-    {n:20, p:3, name:"Física II", t:60, pr:0, pre:[], co:[21]},
-    {n:21, p:3, name:"Experimental de Física II", t:0, pr:30, pre:[], co:[20]},
-    {n:22, p:3, name:"Sinais e Sistemas I", t:30, pr:0, pre:[], co:[]},
-    // 4º período
-    {n:23, p:4, name:"Eletrônica Analógica I", t:60, pr:0, pre:[], co:[24]},
-    {n:24, p:4, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[], co:[23]},
-    {n:25, p:4, name:"Circuitos Elétricos II", t:60, pr:0, pre:[], co:[26]},
-    {n:26, p:4, name:"Experimental de Circuitos Elétricos II", t:0, pr:30, pre:[], co:[25]},
-    {n:27, p:4, name:"Eletromagnetismo", t:60, pr:15, pre:[], co:[]},
-    {n:28, p:4, name:"Fenômenos de Transporte", t:60, pr:0, pre:[], co:[]},
-    {n:29, p:4, name:"Física III", t:60, pr:0, pre:[], co:[]},
-    {n:30, p:4, name:"Sinais e Sistemas II", t:60, pr:0, pre:[], co:[]},
-    // 5º período
-    {n:31, p:5, name:"Eletrônica Analógica II", t:30, pr:0, pre:[], co:[32]},
-    {n:32, p:5, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[], co:[31]},
-    {n:33, p:5, name:"Eletrônica Digital", t:30, pr:0, pre:[], co:[34]},
-    {n:34, p:5, name:"Experimental de Eletrônica Digital", t:0, pr:30, pre:[], co:[33]},
-    {n:35, p:5, name:"Conversão de Energia e Máquinas Elétricas", t:60, pr:0, pre:[], co:[36]},
-    {n:36, p:5, name:"Experimental de Conversão de Energia e Máquinas Elétricas", t:0, pr:30, pre:[], co:[35]},
-    {n:37, p:5, name:"Linguagens Lógicas e Funcionais", t:60, pr:0, pre:[], co:[]},
-    {n:38, p:5, name:"Programação Orientada a Objetos", t:30, pr:30, pre:[], co:[]},
-    {n:39, p:5, name:"Sistemas Realimentados", t:60, pr:0, pre:[], co:[40]},
-    {n:40, p:5, name:"Experimental de Sistemas Realimentados", t:0, pr:30, pre:[], co:[39]},
-    // 6º período
-    {n:41, p:6, name:"Sistemas Operacionais", t:60, pr:0, pre:[], co:[]},
-    {n:42, p:6, name:"Sistemas Embarcados I", t:30, pr:30, pre:[], co:[]},
-    {n:43, p:6, name:"Instalações Elétricas", t:30, pr:0, pre:[], co:[44]},
-    {n:44, p:6, name:"Experimental de Instalações Elétricas", t:0, pr:30, pre:[], co:[43]},
-    {n:45, p:6, name:"Arquitetura e Organização de Computadores", t:60, pr:0, pre:[], co:[]},
-    {n:46, p:6, name:"Estrutura de Dados", t:60, pr:0, pre:[], co:[]},
-    // 7º período
-    {n:48, p:7, name:"Projeto Interdisciplinar para Engenharia de Computação", t:0, pr:30, pre:[], co:[], minH:2300},
-    {n:49, p:7, name:"Banco de Dados", t:60, pr:0, pre:[], co:[]},
-    {n:50, p:7, name:"Microprocessadores", t:60, pr:0, pre:[], co:[]},
-    {n:51, p:7, name:"Robótica", t:60, pr:0, pre:[], co:[]},
-    {n:52, p:7, name:"Computação Gráfica", t:30, pr:30, pre:[], co:[]},
-    // 8º período
-    {n:54, p:8, name:"Metrologia e Instrumentação", t:60, pr:0, pre:[], co:[]},
-    {n:55, p:8, name:"Periféricos e Interfaces", t:45, pr:45, pre:[], co:[]},
-    {n:56, p:8, name:"Inteligência Artificial", t:60, pr:30, pre:[], co:[]},
-    {n:57, p:8, name:"Redes de Computadores", t:60, pr:0, pre:[], co:[]},
-    {n:58, p:8, name:"Sistemas em Tempo Real", t:45, pr:15, pre:[], co:[]},
-    // 9º período
-    {n:59, p:9, name:"Fontes Alternativas de Energia I", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:60, p:9, name:"Administração", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:61, p:9, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:62, p:9, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:63, p:9, name:"Trabalho de Conclusão de Curso (TCC) para Engenharia de Computação", t:0, pr:60, pre:[], co:[], minH:2800},
-    // 10º período
-    {n:64, p:10, name:"Estágio Obrigatório para Engenharia de Computação", t:0, pr:240, pre:[], co:[], minH:2300},
-    // Componentes curriculares optativos
-    {n:66, p:null, name:"Língua Brasileira de Sinais – LIBRAS I", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:67, p:null, name:"Elementos Finitos", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:68, p:null, name:"Compiladores", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:69, p:null, name:"Sistemas Embarcados II", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:70, p:null, name:"Tópicos Especiais em Engenharia de Computação I", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:71, p:null, name:"Tópicos Especiais em Engenharia de Computação II", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:72, p:null, name:"Instalações Industriais", t:45, pr:15, pre:[], co:[], minH:2000},
-    {n:73, p:null, name:"Eficiência Energética", t:30, pr:30, pre:[], co:[], minH:2000},
-    {n:74, p:null, name:"NR10: Segurança em Eletricidade", t:60, pr:0, pre:[], co:[], minH:2000},
-    {n:75, p:null, name:"Aterramentos em Sistemas Elétricos", t:30, pr:30, pre:[], co:[], minH:2000}
-  ],
-  // Interpretações adotadas (documentação dos dados; não exibidas na tela)
-  notes: [
-    "Fluxograma 2016-1: as cargas são semanais; foram convertidas em horas no semestre multiplicando por 15 (4 h semanais = 60 h). As Atividades Acadêmicas Complementares (12 h semanais) viraram 180 h.",
-    "Nenhum pré-requisito está indicado no fluxograma 2016-1 (as células de pré-requisito estão vazias ou trazem a carga horária mínima). Há apenas correquisitos e exigências de carga horária.",
-    "O fluxograma não mostra o número de Fenômenos de Transporte e de Programação Orientada a Objetos; foram usados 28 e 38, que completam a sequência.",
-    "Experimental de Instalações Elétricas (44) traz \"44\" como correquisito; foi interpretado como 43 (Instalações Elétricas), que indica 44.",
-    "Os totais semanais dos cabeçalhos do 7º (14/8/22) e do 8º período (17/7/24) não batem com a soma teórica/prática dos quadros (18/4 e 18/6); foram usados os valores de cada disciplina."
-]
-}
-});
-</script>
-
 <!-- =====================================================================
      MATRIZ 2019.1 — DADOS CURRICULARES
      Curso: Engenharia de Computação – UFU – Matriz 2019.1
@@ -1902,15 +1515,288 @@ PLANNER_DATASETS.push({
   // Interpretações adotadas (documentação dos dados; não exibidas na tela)
   notes: [
     "Cargas CHT/CHP/CHD/CHE: teórica = CHT + CHD (a distância) e prática = CHP + CHE (extensão). Disciplinas com CHD: Elementos de Sistemas Computacionais, Segurança de Sistemas Computacionais, Engenharia de Contexto em IA Generativa e IA Aplicada à Cibersegurança (30 h cada).",
-    "No fluxograma do PPC 2026-1, Circuitos Elétricos I aparece como \"Circuitos Eletro Elétricos I\" e as disciplinas experimentais aparecem com o nome invertido (ex.: \"Sistemas Digitais, Experimental de\"). Aqui foram usados os nomes do quadro de horários e das demais matrizes.",
-    "O fluxograma escreve \"Apredizagem Profunda e Modelos Generativos\"; foi corrigido para \"Aprendizagem\", como no quadro (FEELT37701).",
-    "Atividade Acadêmicas Complementares (90 h) e Disciplinas Optativas (90 h) são exigências de carga horária; CH total do curso: 3450 h."
+    "Nomes conforme os Quadros 9.23 e 9.24 do PPC 2026-1. No fluxograma gráfico, as disciplinas experimentais aparecem com o nome invertido (ex.: \"Sistemas Digitais, Experimental de\").",
+    "O fluxograma escreve \"Apredizagem Profunda e Modelos Generativos\"; foi corrigido para \"Aprendizagem\", como no PPC.",
+    "Atividades Acadêmicas Complementares (90 h) e Disciplinas Optativas (90 h) são exigências de carga horária; CH total do curso: 3450 h."
 ]
 }
 });
 </script>
 
 
+
+<!-- =====================================================================
+     MATRIZ 2020.2 — Engenharia Biomédica (fluxograma e PPC)
+     ===================================================================== -->
+<script id="dataset-eb-2020.2">
+PLANNER_DATASETS.push({
+  id: "eb-2020.2",
+  CURRICULUM: {
+  app: "planejador-eb-ufu",
+  matriz: "2020.2",
+  curso: "Engenharia Biomédica – UFU",
+  grupo: "Engenharia Biomédica",
+  short: "Engenharia Biomédica",
+  tag: "Engenharia Biomédica — Matriz 2020.2",
+  versao: "Versão curricular 2020 (PPC versão 12)",
+  fonte: "Fluxograma (Representação Gráfica) e PPC de Engenharia Biomédica 2020 v12 (págs. 34–49 e 58)",
+  requirements: {
+    optativasMinH: 120,
+    extensaoMinH: 420,
+    aacH: 120,
+    totalH: 4200,
+    enade: true
+  },
+  texts: {
+    obr: "Também obrigatórios: Enade (ingressante e concluinte), 420 h de extensão (ACE I–V) e 120 h de Atividades Acadêmicas Complementares.",
+    opt: "{n} optativas sugeridas no PPC (ou disciplinas afins de outras unidades da UFU aprovadas pelo Colegiado), após 2.000 h cumpridas · mínimo de 120 h."
+  },
+  courses: [
+    // 1º período
+    {n:1, p:1, name:"Cálculo Diferencial e Integral I", t:90, pr:0, pre:[], co:[]},
+    {n:2, p:1, name:"Geometria Analítica", t:60, pr:0, pre:[], co:[]},
+    {n:3, p:1, name:"Expressão Gráfica", t:60, pr:0, pre:[], co:[]},
+    {n:4, p:1, name:"Programação Script", t:30, pr:30, pre:[], co:[]},
+    {n:5, p:1, name:"Introdução à Engenharia Biomédica", t:30, pr:0, pre:[], co:[]},
+    {n:6, p:1, name:"Metrologia", t:30, pr:30, pre:[], co:[]},
+    {n:7, p:1, name:"Atividades Curriculares de Extensão I", t:0, pr:90, pre:[], co:[], kind:"extensao"},
+    // 2º período
+    {n:8, p:2, name:"Cálculo Diferencial e Integral II", t:90, pr:0, pre:[1], co:[]},
+    {n:9, p:2, name:"Álgebra Linear", t:45, pr:0, pre:[], co:[]},
+    {n:10, p:2, name:"Física Básica: Mecânica", t:60, pr:0, pre:[], co:[11]},
+    {n:11, p:2, name:"Experimental de Física Básica: Mecânica", t:0, pr:30, pre:[], co:[10]},
+    {n:12, p:2, name:"Programação Procedimental", t:30, pr:30, pre:[], co:[]},
+    {n:13, p:2, name:"Anatomia Humana", t:45, pr:60, pre:[], co:[]},
+    {n:14, p:2, name:"Atividades Curriculares de Extensão II", t:0, pr:60, pre:[], co:[], kind:"extensao"},
+    // 3º período
+    {n:15, p:3, name:"Cálculo Diferencial e Integral III", t:90, pr:0, pre:[8], co:[]},
+    {n:16, p:3, name:"Estatística", t:60, pr:0, pre:[], co:[]},
+    {n:17, p:3, name:"Física Básica: Eletricidade e Magnetismo", t:60, pr:0, pre:[], co:[18]},
+    {n:18, p:3, name:"Experimental de Física Básica: Eletricidade e Magnetismo", t:0, pr:30, pre:[], co:[17]},
+    {n:19, p:3, name:"Circuitos Elétricos I", t:75, pr:0, pre:[], co:[20]},
+    {n:20, p:3, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[], co:[19]},
+    {n:21, p:3, name:"Mecânica dos Sólidos", t:30, pr:0, pre:[], co:[]},
+    {n:22, p:3, name:"Atividades Curriculares de Extensão III", t:0, pr:90, pre:[], co:[], kind:"extensao"},
+    // 4º período
+    {n:23, p:4, name:"Métodos Matemáticos", t:75, pr:0, pre:[15], co:[]},
+    {n:24, p:4, name:"Eletrônica Analógica I", t:60, pr:0, pre:[], co:[25]},
+    {n:25, p:4, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[], co:[24]},
+    {n:26, p:4, name:"Bioquímica", t:45, pr:15, pre:[], co:[]},
+    {n:27, p:4, name:"Física Básica: Oscilações, Ondas e Óptica", t:60, pr:0, pre:[], co:[]},
+    {n:28, p:4, name:"Fenômenos de Transporte", t:60, pr:0, pre:[], co:[]},
+    {n:29, p:4, name:"Sistemas Digitais", t:30, pr:0, pre:[], co:[30]},
+    {n:30, p:4, name:"Experimental de Sistemas Digitais", t:0, pr:30, pre:[], co:[29]},
+    {n:31, p:4, name:"Atividades Curriculares de Extensão IV", t:0, pr:60, pre:[], co:[], kind:"extensao"},
+    // 5º período
+    {n:32, p:5, name:"Sinais e Sistemas", t:60, pr:0, pre:[], co:[]},
+    {n:33, p:5, name:"Eletrônica Analógica II", t:60, pr:0, pre:[24], co:[34]},
+    {n:34, p:5, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[], co:[33]},
+    {n:35, p:5, name:"Fisiologia", t:60, pr:30, pre:[], co:[]},
+    {n:36, p:5, name:"Sistemas Embarcados I", t:45, pr:60, pre:[], co:[]},
+    {n:37, p:5, name:"Instrumentação Industrial I", t:45, pr:15, pre:[], co:[]},
+    {n:38, p:5, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[]},
+    // 6º período
+    {n:39, p:6, name:"Instalações Elétricas", t:30, pr:0, pre:[], co:[40]},
+    {n:40, p:6, name:"Experimental de Instalações Elétricas", t:0, pr:30, pre:[], co:[39]},
+    {n:41, p:6, name:"Biomecânica", t:45, pr:15, pre:[], co:[]},
+    {n:42, p:6, name:"Biofísica", t:60, pr:30, pre:[], co:[]},
+    {n:43, p:6, name:"Sistemas de Controle Realimentado", t:60, pr:0, pre:[], co:[44]},
+    {n:44, p:6, name:"Experimental de Sistemas de Controle Realimentado", t:0, pr:30, pre:[], co:[43]},
+    {n:45, p:6, name:"Processamento de Sinais Biomédicos", t:60, pr:0, pre:[], co:[]},
+    {n:46, p:6, name:"Projeto Interdisciplinar em Engenharia Biomédica", t:0, pr:30, pre:[], co:[]},
+    // 7º período
+    {n:47, p:7, name:"Administração", t:60, pr:0, pre:[], co:[]},
+    {n:48, p:7, name:"Ciência e Tecnologia dos Materiais em Engenharia Biomédica", t:60, pr:0, pre:[], co:[]},
+    {n:49, p:7, name:"Imagens Médicas I", t:60, pr:0, pre:[], co:[]},
+    {n:50, p:7, name:"Fatores Humanos e Engenharia de Usabilidade", t:60, pr:0, pre:[], co:[]},
+    {n:51, p:7, name:"Engenharia de Reabilitação e Tecnologia Assistiva", t:45, pr:15, pre:[], co:[]},
+    {n:52, p:7, name:"Instrumentação Biomédica I", t:60, pr:30, pre:[], co:[]},
+    {n:53, p:7, name:"Engenharia Clínica I", t:60, pr:0, pre:[], co:[]},
+    // 8º período
+    {n:54, p:8, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[]},
+    {n:55, p:8, name:"Avaliação de Tecnologias em Saúde", t:60, pr:0, pre:[], co:[]},
+    {n:56, p:8, name:"Imagens Médicas II", t:30, pr:30, pre:[49], co:[]},
+    {n:57, p:8, name:"Gestão de Resíduos Hospitalares", t:30, pr:0, pre:[], co:[]},
+    {n:58, p:8, name:"Telemedicina", t:60, pr:0, pre:[], co:[]},
+    {n:59, p:8, name:"Instrumentação Biomédica II", t:60, pr:30, pre:[52], co:[]},
+    {n:60, p:8, name:"Engenharia Clínica II", t:60, pr:0, pre:[53], co:[]},
+    {n:61, p:8, name:"Engenharia Hospitalar", t:60, pr:0, pre:[], co:[]},
+    // 9º período
+    {n:62, p:9, name:"Trabalho de Conclusão de Curso", t:0, pr:60, pre:[], co:[], minH:2700},
+    {n:63, p:9, name:"Atividades Curriculares de Extensão V", t:0, pr:120, pre:[], co:[], kind:"extensao"},
+    // 10º período
+    {n:64, p:10, name:"Estágio Obrigatório em Engenharia Biomédica", t:0, pr:180, pre:[], co:[], minH:2300},
+    // Optativas
+    {n:65, p:null, name:"Língua Brasileira de Sinais - Libras I", t:30, pr:30, pre:[], co:[], minH:2000},
+    {n:66, p:null, name:"Tecnologias Avançadas em Instrumentação Biomédica", t:60, pr:0, pre:[], co:[], minH:2000},
+    {n:67, p:null, name:"Engenharia Biomédica Forense", t:60, pr:0, pre:[], co:[], minH:2000}
+  ],
+  // Interpretações adotadas (documentação dos dados; não exibidas na tela)
+  notes: [
+    "Matriz 2020.2 é inferência: o PPC (versão 12, datado de 2020; arquivo de 08/09/2020) não informa o semestre de implantação, apenas que 'o novo currículo será aplicado a partir do início do semestre subsequente à aprovação da reformulação do PPC' (p. 58). Como a versão final é de set/2020, adotou-se 2020/2 (mesmo semestre de implantação dos demais PPCs FEELT de 2020). Confirmar com a coordenação.",
+    "Fonte normativa: Quadro 8.9 – Fluxo Curricular (PPC págs. 44–48); CH conferida também nos Quadros 8.3 a 8.7 (págs. 39–43). Todas as CH teóricas/práticas do fluxograma conferem com o PPC.",
+    "Quadro 8.9 (p. 46, 4º período) traz uma linha 'Cálculo Diferencial e Integral IV' (FEELT, 0/60, sem CH total) que não aparece no fluxograma, nos Quadros 8.2–8.8 nem nas somas de CH; tratada como erro de edição do PPC e NÃO incluída.",
+    "Estágio Obrigatório: o texto do PPC (p. 36) diz que a matrícula pode ocorrer após 2.700 h, mas o Quadro 8.9 (p. 48) e o fluxograma exigem 2.300 h; adotado minH 2300 (tabela normativa + fluxograma).",
+    "Correquisitos: o Quadro 8.9 e as setas duplas do fluxograma indicam correquisito nos dois sentidos (teórica ↔ experimental) para 10/11, 17/18, 19/20, 24/25, 29/30, 33/34, 39/40 e 43/44; por isso co foi colocado nas duas disciplinas de cada par.",
+    "Pré-requisitos (Quadro 8.9 e fluxograma): 8←1, 15←8, 23←15, 33←24, 56←49, 59←52, 60←53; TCC exige 2.700 h, Estágio 2.300 h e optativas 2.000 h cumpridas (minH).",
+    "Optativas: o PPC não as numera; numeradas 65–67 continuando após o nº 64 do fluxograma, na ordem em que aparecem no fluxograma (Libras I, Tecnologias Avançadas em Instrumentação Biomédica, Engenharia Biomédica Forense). O PPC permite ainda qualquer disciplina de áreas afins de outras unidades da UFU, aprovada pelo Colegiado (p. 43); mínimo de 120 h e pelo menos dois componentes.",
+    "Totais: obrigatórias (disciplinas + TCC + Estágio) = 3.540 h (3.300 + 60 + 180, Quadro 8.8, p. 43); extensão 420 h (5 ACE, Quadro 8.6); optativas 120 h; AAC 120 h; total 4.200 h. O texto da p. 35 cita 3.660 h obrigatórias (2.625 T + 1.035 P) porque inclui as 120 h de AAC no Núcleo Específico.",
+    "Enade (ingressante e concluinte) e Atividades Acadêmicas Complementares não entram como disciplinas (somente em requirements).",
+    "Nomes conforme Quadro 8.9; a grafia 'Língua Brasileira de Sinais - Libras I' segue o PPC."
+  ]
+}
+});
+</script>
+
+<!-- =====================================================================
+     MATRIZ 2020.2 — Engenharia Eletrônica e de Telecomunicações (fluxograma e PPC)
+     ===================================================================== -->
+<script id="dataset-eet-2020.2">
+PLANNER_DATASETS.push({
+  id: "eet-2020.2",
+  CURRICULUM: {
+  app: "planejador-eet-ufu",
+  matriz: "2020.2",
+  curso: "Engenharia Eletrônica e de Telecomunicações – UFU",
+  grupo: "Engenharia Eletrônica e de Telecomunicações",
+  short: "Engenharia Eletrônica e de Telecomunicações",
+  tag: "Engenharia Eletrônica e de Telecomunicações — Matriz 2020.2",
+  versao: "Versão curricular 2020-2 (PPC homologado pelo SEI 23117.015883/2019-69, vigente a partir do 2º semestre de 2020), com alteração de períodos do fluxograma",
+  fonte: "Fluxograma '2020_2 alteração períodos' (Representação Gráfica do Perfil de Formação, 1 pág.) e PPC de Engenharia Eletrônica e de Telecomunicações – FEELT/UFU, Campus Santa Mônica (págs. 6, 18-19, 34, 40-47, 55-56)",
+  requirements: {
+    optativasMinH: 120,
+    extensaoMinH: 0,
+    aacH: 120,
+    totalH: 3645,
+    enade: true
+  },
+  texts: {
+    obr: "Todos os componentes são obrigatórios, incluindo o Enade (ingressante e concluinte) e 120 h de Atividades Acadêmicas Complementares. Projeto Interdisciplinar e Estágio exigem 2.000 h cumpridas.",
+    opt: "{n} optativas listadas no PPC (outras disciplinas da UFU podem ser aprovadas pelo Colegiado) · mínimo de 120 h."
+  },
+  courses: [
+    // 1º período
+    {n:1, p:1, name:"Cálculo Diferencial e Integral I", t:90, pr:0, pre:[], co:[]},
+    {n:2, p:1, name:"Experimental de Física Básica: Mecânica", t:0, pr:30, pre:[], co:[4]},
+    {n:3, p:1, name:"Expressão Gráfica", t:60, pr:0, pre:[], co:[]},
+    {n:4, p:1, name:"Física Básica: Mecânica", t:60, pr:0, pre:[], co:[2]},
+    {n:5, p:1, name:"Geometria Analítica", t:60, pr:0, pre:[], co:[]},
+    {n:6, p:1, name:"Introdução à Engenharia Eletrônica e de Telecomunicações", t:30, pr:0, pre:[], co:[]},
+    {n:7, p:1, name:"Programação Script", t:30, pr:30, pre:[], co:[]},
+    // 2º período
+    {n:8, p:2, name:"Álgebra Linear", t:45, pr:0, pre:[], co:[]},
+    {n:9, p:2, name:"Cálculo Diferencial e Integral II", t:90, pr:0, pre:[1], co:[]},
+    {n:10, p:2, name:"Experimental de Física Básica: Oscilações, Ondas e Óptica", t:0, pr:30, pre:[], co:[12]},
+    {n:11, p:2, name:"Experimental de Sistemas Digitais", t:0, pr:30, pre:[], co:[15]},
+    {n:12, p:2, name:"Física Básica: Oscilações, Ondas e Óptica", t:60, pr:0, pre:[], co:[10]},
+    {n:13, p:2, name:"Metrologia", t:30, pr:30, pre:[], co:[]},
+    {n:14, p:2, name:"Programação Procedimental", t:30, pr:30, pre:[], co:[]},
+    {n:15, p:2, name:"Sistemas Digitais", t:30, pr:0, pre:[], co:[11]},
+    // 3º período
+    {n:16, p:3, name:"Cálculo Diferencial e Integral III", t:90, pr:0, pre:[9], co:[]},
+    {n:17, p:3, name:"Circuitos Elétricos I", t:75, pr:0, pre:[], co:[19, 16]},
+    {n:18, p:3, name:"Estatística", t:60, pr:0, pre:[], co:[]},
+    {n:19, p:3, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[13], co:[17]},
+    {n:20, p:3, name:"Experimental de Física Básica: Eletricidade e Magnetismo", t:0, pr:30, pre:[], co:[21]},
+    {n:21, p:3, name:"Física Básica: Eletricidade e Magnetismo", t:60, pr:0, pre:[], co:[20]},
+    {n:22, p:3, name:"Programação Orientada a Objetos", t:30, pr:30, pre:[], co:[]},
+    {n:23, p:3, name:"Química Geral", t:30, pr:15, pre:[], co:[]},
+    // 4º período
+    {n:24, p:4, name:"Cálculo Numérico", t:60, pr:0, pre:[16], co:[]},
+    {n:25, p:4, name:"Eletromagnetismo", t:60, pr:15, pre:[5, 16, 21], co:[]},
+    {n:26, p:4, name:"Eletrônica Analógica I", t:60, pr:0, pre:[17], co:[27]},
+    {n:27, p:4, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[17], co:[26]},
+    {n:28, p:4, name:"Experimental de Instalações Elétricas", t:0, pr:30, pre:[17], co:[29]},
+    {n:29, p:4, name:"Instalações Elétricas", t:30, pr:0, pre:[17], co:[28]},
+    {n:30, p:4, name:"Métodos Matemáticos", t:75, pr:0, pre:[16], co:[]},
+    // 5º período
+    {n:31, p:5, name:"Antenas", t:45, pr:15, pre:[25], co:[]},
+    {n:32, p:5, name:"Eletrônica Analógica II", t:60, pr:0, pre:[26], co:[33]},
+    {n:33, p:5, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[26], co:[32]},
+    {n:34, p:5, name:"Linhas de Transmissão e Radiação", t:45, pr:15, pre:[25], co:[]},
+    {n:35, p:5, name:"Princípios de Comunicações", t:60, pr:30, pre:[], co:[]},
+    {n:36, p:5, name:"Sistemas Embarcados I", t:45, pr:30, pre:[15, 14], co:[]},
+    // 6º período
+    {n:37, p:6, name:"Comunicações Digitais I", t:45, pr:15, pre:[35], co:[]},
+    {n:38, p:6, name:"Eletrônica de Radiofrequência I", t:45, pr:15, pre:[32], co:[]},
+    {n:39, p:6, name:"Princípios de Microondas", t:45, pr:15, pre:[34], co:[]},
+    {n:40, p:6, name:"Propagação de Ondas Eletromagnéticas", t:60, pr:0, pre:[25], co:[]},
+    {n:41, p:6, name:"Redes de Comunicações I", t:45, pr:15, pre:[7], co:[]},
+    {n:42, p:6, name:"Sistemas e Controle", t:30, pr:15, pre:[], co:[]},
+    // 7º período
+    {n:43, p:7, name:"Comunicações Digitais II", t:45, pr:15, pre:[35], co:[]},
+    {n:44, p:7, name:"Conversão de Energia e Máquinas Elétricas", t:60, pr:15, pre:[17], co:[]},
+    {n:45, p:7, name:"Eletrônica de Radiofrequência II", t:45, pr:15, pre:[38, 37], co:[]},
+    {n:46, p:7, name:"Processamento Digital de Sinais", t:45, pr:15, pre:[], co:[]},
+    {n:47, p:7, name:"Redes de Comunicações II", t:45, pr:15, pre:[41], co:[]},
+    {n:48, p:7, name:"Telefonia Digital", t:45, pr:15, pre:[41], co:[]},
+    // 8º período
+    {n:49, p:8, name:"Comunicações Móveis", t:45, pr:15, pre:[40], co:[]},
+    {n:50, p:8, name:"Comunicações Ópticas", t:45, pr:15, pre:[39, 43], co:[]},
+    {n:51, p:8, name:"Comunicações Via Satélite", t:45, pr:15, pre:[35], co:[]},
+    {n:52, p:8, name:"Projeto Interdisciplinar para Engenharia Eletrônica e de Telecomunicações", t:15, pr:15, pre:[], co:[], minH:2000},
+    {n:53, p:8, name:"Sistemas de Televisão", t:45, pr:15, pre:[], co:[]},
+    // 9º período
+    {n:54, p:9, name:"Administração", t:60, pr:0, pre:[], co:[]},
+    {n:55, p:9, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[]},
+    {n:56, p:9, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[]},
+    {n:57, p:9, name:"Sistemas de Comunicações", t:45, pr:15, pre:[35], co:[]},
+    {n:58, p:9, name:"Trabalho de Conclusão de Curso", t:0, pr:30, pre:[52], co:[]},
+    // 10º período
+    {n:59, p:10, name:"Estágio Supervisionado", t:0, pr:180, pre:[], co:[], minH:2000},
+    // Optativas
+    {n:60, p:null, name:"Aprendizagem de Máquina", t:30, pr:15, pre:[], co:[]},
+    {n:61, p:null, name:"Arquitetura de Software Aplicada", t:30, pr:15, pre:[], co:[]},
+    {n:62, p:null, name:"Arquitetura e Organização de Computadores", t:30, pr:15, pre:[15], co:[]},
+    {n:63, p:null, name:"Banco de Dados", t:30, pr:15, pre:[], co:[]},
+    {n:64, p:null, name:"Eletrônica de Potência", t:45, pr:15, pre:[], co:[]},
+    {n:65, p:null, name:"Eletrônica para Comunicações", t:45, pr:15, pre:[45], co:[]},
+    {n:66, p:null, name:"Engenharia de Software", t:30, pr:15, pre:[], co:[]},
+    {n:67, p:null, name:"Experimental de Sistemas de Controle Realimentado", t:0, pr:30, pre:[], co:[]},
+    {n:68, p:null, name:"Informática Industrial I", t:30, pr:30, pre:[14, 15], co:[]},
+    {n:69, p:null, name:"Infraestrutura e Planejamento para Telecomunicações", t:45, pr:15, pre:[], co:[]},
+    {n:70, p:null, name:"Instrumentação Industrial I", t:45, pr:15, pre:[32], co:[]},
+    {n:71, p:null, name:"Língua Brasileira de Sinais - LIBRAS I", t:30, pr:30, pre:[], co:[]},
+    {n:72, p:null, name:"Otimização e Simulação", t:30, pr:15, pre:[18], co:[]},
+    {n:73, p:null, name:"Processamento Digital de Imagens", t:45, pr:15, pre:[46], co:[]},
+    {n:74, p:null, name:"Processos Estocásticos", t:45, pr:15, pre:[], co:[]},
+    {n:75, p:null, name:"Programação Lógica e Inteligência Artificial", t:30, pr:15, pre:[], co:[]},
+    {n:76, p:null, name:"Redes de Sensores e Internet das Coisas", t:45, pr:15, pre:[], co:[]},
+    {n:77, p:null, name:"Redes Industriais para Controle e Automação I", t:60, pr:15, pre:[14, 15], co:[]},
+    {n:78, p:null, name:"Redes Móveis de Última Geração", t:60, pr:0, pre:[47], co:[]},
+    {n:79, p:null, name:"Segurança de Sistemas Computacionais", t:30, pr:15, pre:[41], co:[]},
+    {n:80, p:null, name:"Sinais e Multimídia", t:30, pr:15, pre:[], co:[]},
+    {n:81, p:null, name:"Sistemas Computacionais em Tempo Real", t:30, pr:15, pre:[], co:[]},
+    {n:82, p:null, name:"Sistemas de Controle Realimentado", t:60, pr:0, pre:[], co:[]},
+    {n:83, p:null, name:"Sistemas Distribuídos", t:30, pr:15, pre:[41], co:[]},
+    {n:84, p:null, name:"Sistemas Embarcados II", t:30, pr:30, pre:[36], co:[]},
+    {n:85, p:null, name:"Sistemas Operacionais", t:30, pr:15, pre:[], co:[]},
+    {n:86, p:null, name:"Tecnologias Web e Mobile", t:30, pr:15, pre:[22], co:[]},
+    {n:87, p:null, name:"Tópicos Especiais em Engenharia Eletrônica e de Telecomunicações I", t:30, pr:30, pre:[], co:[]},
+    {n:88, p:null, name:"Tópicos Especiais em Engenharia Eletrônica e de Telecomunicações II", t:45, pr:15, pre:[], co:[]},
+    {n:89, p:null, name:"Tópicos Especiais em Engenharia Eletrônica e de Telecomunicações III", t:60, pr:0, pre:[], co:[]},
+    {n:90, p:null, name:"Tópicos Especiais em Redes de Dados I", t:45, pr:15, pre:[], co:[]},
+    {n:91, p:null, name:"Tópicos Especiais em Redes de Dados II", t:30, pr:30, pre:[], co:[]}
+  ],
+  // Interpretações adotadas (documentação dos dados; não exibidas na tela)
+  notes: [
+    "Fonte do fluxograma: arquivo '2020_2 alteração períodos' (Excel, gerado em 20/06/2022), que reproduz a pág. 47 do PPC com remanejamento de períodos e renumeração das caixas. Numeração (n) e períodos (p) seguem esse fluxograma alterado.",
+    "Alteração de períodos em relação ao fluxo curricular do PPC (págs. 41-45; tabela 'Fluxo Curricular') e ao fluxograma original do PPC (pág. 47): Conversão de Energia e Máquinas Elétricas passou do 5º para o 7º período (n 31 → 44); Antenas passou do 6º para o 5º (n 37 → 31); Propagação de Ondas Eletromagnéticas passou do 7º para o 6º (n 46 → 40). As caixas do 6º e 7º períodos foram renumeradas: Comunicações Digitais I 38→37, Eletrônica de Radiofrequência I 39→38, Princípios de Microondas 40→39, Redes de Comunicações I 41 (igual), Sistemas e Controle 42 (igual), Eletrônica de Radiofrequência II 44→45, Processamento Digital de Sinais 45→46. A CH por período muda: 5º 390→375 h, 6º 345→345 h, 7º 360→375 h (nenhuma CH de disciplina mudou). A oferta 2026/2 (horários) confirma Conversão de Energia com 'Período Ideal: 7'.",
+    "Conflito: no fluxograma alterado, Eletrônica de Radiofrequência II (n 45) aparece com pré-requisitos '38' e '39', números herdados da numeração antiga (38 = Comunicações Digitais I, 39 = Eletrônica de Radiofrequência I). Na numeração nova, 39 seria Princípios de Microondas. Adotado o PPC (pág. 43): pré-requisitos Eletrônica de Radiofrequência I (38) e Comunicações Digitais I (37).",
+    "Conflito: as optativas do fluxograma alterado mantiveram as referências da numeração antiga. Eletrônica para Comunicações indica '44' (no novo, 44 = Conversão de Energia) e Processamento Digital de Imagens indica '45' (no novo, 45 = Eletrônica de Radiofrequência II). Adotado o PPC (págs. 44-45): pré-requisitos Eletrônica de Radiofrequência II (45) e Processamento Digital de Sinais (46), respectivamente. As demais referências das optativas (15, 32, 18, 14/15, 47, 41, 36, 22) coincidem nas duas numerações.",
+    "Circuitos Elétricos I (17): o PPC lista como correquisitos Experimental de Circuitos Elétricos I e Cálculo Diferencial e Integral III; o fluxograma confirma (linhas duplas 16 e 19). Codificado co [19,16], sem pré-requisito.",
+    "Correquisitos teórica×experimental: o PPC (págs. 41-43) registra o correquisito nos dois sentidos para Física Básica (Mecânica; Oscilações, Ondas e Óptica; Eletricidade e Magnetismo), Sistemas Digitais, Eletrônica Analógica I e II e Instalações Elétricas, e o fluxograma também mostra linha dupla nos dois sentidos; por isso co foi mantido nos dois sentidos. Em Experimental de Circuitos Elétricos I × Circuitos Elétricos I também é mútuo.",
+    "Projeto Interdisciplinar (52) e Estágio Supervisionado (59) exigem 2.000 horas cumpridas em componentes curriculares (minH 2000; obs. * e *** do PPC, pág. 46). TCC (58) exige ter cursado o Projeto Interdisciplinar (pré 52).",
+    "Optativas: o PPC não numera optativas; numeradas de 60 a 91 na ordem em que aparecem no fluxograma/PPC (ordem alfabética), continuando após o 59 (Estágio). São 32 optativas, conforme item 10 da seção 2.5 (pág. 19). Exige-se no mínimo 120 h de optativas; o Colegiado pode aprovar outras disciplinas da UFU como optativas.",
+    "CH: todas as cargas horárias (teórica/prática) do fluxograma alterado conferem com a tabela normativa do PPC; nenhuma divergência encontrada.",
+    "Totais: soma das obrigatórias (59 componentes, incluindo Projeto Interdisciplinar 30 h, TCC 30 h e Estágio 180 h) = 3.405 h = 3.165 h de disciplinas obrigatórias + 30 + 30 + 180 (Quadro 7, pág. 40). 3.405 + 120 h optativas + 120 h AAC = 3.645 h (CH total, pág. 6; Quadro 1, pág. 34).",
+    "Extensão: esta versão do PPC não tem componentes curriculares de extensão; a seção 6.9 (págs. 55-56) apenas prevê sua inclusão em revisão posterior (até dez/2021). Por isso extensaoMinH = 0 e nenhum curso com kind 'extensao'.",
+    "Enade (Ingressante no 1º e Concluinte no 10º) e as 120 h de Atividades Acadêmicas Complementares constam na tabela do fluxo, mas não entram como disciplinas (apenas em requirements).",
+    "Paginação: as páginas citadas são as do arquivo eet_ppc.pdf (83 págs.), que coincidem com a numeração impressa no rodapé do PPC e com o carimbo SEI."
+  ]
+}
+});
+</script>
 
 <!-- =====================================================================
      ESCOLHA DA MATRIZ (antes da lógica): define CURRICULUM e BASE_TT.
@@ -1938,6 +1824,8 @@ const TT_LABEL = BASE_TT.rotulo || `Quadro ${BASE_TT.periodo}`;
 const SEMESTRE = BASE_TT.semestre || HORARIOS?.semestre
   || Object.values(HORARIOS?.matrizes || {}).find(m => m?.semestre?.inicio && m.periodo === BASE_TT.periodo)?.semestre || null;                       // selo curto
 const TT_SRC = /^oferta/i.test(TT_LABEL) ? `planilha de oferta ${BASE_TT.periodo}` : `quadro de horários ${BASE_TT.periodo}`;
+const TT_FEM = /^oferta/i.test(TT_LABEL);                          // "a planilha" × "o quadro"
+const TT_NA = (TT_FEM ? "na " : "no ") + TT_SRC, TT_DA = (TT_FEM ? "da " : "do ") + TT_SRC, TT_A = (TT_FEM ? "a " : "o ") + TT_SRC;
 function switchDataset(id){
   if (!PLANNER_DATASETS.some(d => d.id === id)) return;
   try { localStorage.setItem(DS_LAST_KEY, id); } catch(e){}
@@ -2083,6 +1971,17 @@ function countsAsDone(id){
 
 // Horas cumpridas para as exigências de carga horária mínima (1000/1800/2000/2800 h)
 const THRESHOLDS = [...new Set(COURSES.map(c => c.minH).filter(Boolean))].sort((a, b) => a - b);
+const fmtH = h => Number(h).toLocaleString("pt-BR");
+// Disciplinas que exigem cada carga horária mínima (ex.: 2700 -> ["Trabalho de Conclusão de Curso"])
+function thresholdUses(t){
+  const cs = COURSES.filter(c => c.minH === t);
+  const obr = cs.filter(c => c.section !== "opt"), opt = cs.filter(c => c.section === "opt");
+  const parts = obr.map(c => c.name);
+  const nOptTot = COURSES.filter(c => c.section === "opt").length;
+  if (opt.length) parts.push(opt.length === nOptTot && opt.length > 1 ? `todas as optativas (${opt.length})`
+    : opt.length > 2 ? `${opt.length} optativas (${opt.slice(0, 2).map(c => c.name).join(", ")}…)` : opt.map(c => `${c.name} (optativa)`).join(", "));
+  return parts.join("; ");
+}
 function hoursForThresholds(){
   let h = 0;
   for (const c of COURSES) if (countsAsDone(c.id) && c.total) h += c.total;
@@ -2153,8 +2052,8 @@ function evaluate(c, ctx){
   }
   // 2) Carga horária mínima integralizada.
   if (c.minH){
-    if (hours >= c.minH) reasons.push({ok:true, kind:"hours", text:`Carga horária mínima de ${c.minH} h cumprida (você tem ${hours} h).`});
-    else { hoursOk = false; reasons.push({ok:false, kind:"hours", text:`Exige ${c.minH} h cumpridas em componentes curriculares. Você tem ${hours} h; faltam ${c.minH - hours} h.`}); short.push(`${c.minH - hours} h de carga horária (mín. ${c.minH} h)`); }
+    if (hours >= c.minH) reasons.push({ok:true, kind:"hours", text:`Carga horária mínima para cursar esta disciplina (${fmtH(c.minH)} h) cumprida: você tem ${fmtH(hours)} h.`});
+    else { hoursOk = false; reasons.push({ok:false, kind:"hours", text:`Para cursar esta disciplina, exige ${fmtH(c.minH)} h cumpridas em componentes curriculares. Você tem ${fmtH(hours)} h; faltam ${fmtH(c.minH - hours)} h.`}); short.push(`${c.minH - hours} h de carga horária (mín. ${c.minH} h)`); }
   }
   // 3) Correquisitos: conclusão anterior OU matrícula simultânea. Na matrícula
   //    simultânea, valida-se o conjunto: o parceiro também precisa ter seus
@@ -2333,7 +2232,7 @@ function renderStats({ctx}){
   const integral = Math.min(obH, obTot) + Math.min(exH, exTot) + Math.min(optTotal, req.optativasMinH) + Math.min(aac, req.aacH);
   const pct = v => Math.round(v*1000)/10;
   const realHours = COURSES.reduce((s,c)=> s + (done(c.id) ? (c.total||0) : 0), 0) + clampNum(state.extOptH) + (state.settings.aacCountsForThreshold ? aac : 0);
-  const thr = THRESHOLDS.map(t => `<span class="thr ${ctx.hours>=t?"ok":""}">${t} h</span>`).join("");
+  const thr = THRESHOLDS.map(t => `<li class="${ctx.hours>=t?"ok":""}"><span class="thr ${ctx.hours>=t?"ok":""}">${fmtH(t)} h</span> <span class="thr-for">${esc(thresholdUses(t))}</span></li>`).join("");
   const bar = (v,t) => `<div class="bar" aria-hidden="true"><span style="width:${Math.min(100, t? v/t*100:0)}%"></span></div>`;
   let nAvail = 0, nConj = 0, nBlock = 0;
   for (const [, e] of LAST.ev){ if (e.status==="disponivel") nAvail++; else if (e.status==="conjunta") nConj++; else if (e.status==="bloqueada") nBlock++; }
@@ -2352,9 +2251,10 @@ function renderStats({ctx}){
       <div class="small muted">${opN} do fluxograma · <label>de outras unidades: <input type="number" min="0" max="2000" step="15" id="extOptH" value="${clampNum(state.extOptH)}"> h</label></div></div>
     <div class="stat"><div class="lbl">Atividades Acadêmicas Complementares (${req.aacH} h)</div>
       <div class="val"><label><input type="number" min="0" max="2000" step="5" id="aacH" value="${aac}" aria-label="Horas de AAC"> h</label></div>${bar(aac, req.aacH)}
-      <label class="check small" style="margin-top:6px"><input type="checkbox" id="aacCounts" ${state.settings.aacCountsForThreshold?"checked":""}> contar nos limites de ${THRESHOLDS.join("/")} h</label></div>
+      <label class="check small" style="margin-top:6px"><input type="checkbox" id="aacCounts" ${state.settings.aacCountsForThreshold?"checked":""}> contar nas horas mínimas (${THRESHOLDS.map(fmtH).join(" / ")} h)</label></div>
     <div class="stat"><div class="lbl">Horas p/ requisitos de carga horária</div>
-      <div class="val">${ctx.hours} h</div><div class="thresholds">${thr}</div>
+      <div class="val">${ctx.hours} h</div>
+      ${THRESHOLDS.length ? `<div class="small muted" style="margin-top:4px">Carga horária mínima exigida para se matricular em:</div><ul class="thr-list">${thr}</ul>` : `<div class="small muted">Esta matriz não exige carga horária mínima para nenhuma disciplina.</div>`}
       ${state.settings.doingAsDone && ctx.hours !== realHours ? `<div class="small muted">Inclui disciplinas em andamento (simulação). Real: ${realHours} h.</div>` : ""}</div>
     <div class="stat stat-note"><div class="lbl">Enade</div>
       <div class="small">Componente curricular obrigatório (ingressante e concluinte), sem carga horária. Não é disciplina: a inscrição é feita pela coordenação e a situação regular é exigida para colar grau.</div></div>
@@ -2592,7 +2492,7 @@ function openBatchDialog(pn){
         : `<li><label class="cb"><input type="checkbox" data-bid="${c.id}" checked> <span>${c.n} – ${esc(c.name)}${note(c) ? ` <span class="muted">(${note(c)})</span>` : ""}${state.plan.includes(c.id) ? ` <span class="muted">(está planejada)</span>` : ""}</span></label></li>`).join("")}
     </ul>
     <div id="batchWarn"></div>
-    <p class="small muted">Optativas não são marcadas: no fluxograma elas não pertencem a um período (exige-se o mínimo de 75 h no curso). Você pode corrigir qualquer disciplina individualmente depois, e haverá a opção "Desfazer".</p>`;
+    <p class="small muted">Optativas não são marcadas: no fluxograma elas não pertencem a um período (exige-se o mínimo de ${CURRICULUM.requirements.optativasMinH} h no curso). Você pode corrigir qualquer disciplina individualmente depois, e haverá a opção "Desfazer".</p>`;
   const refresh = () => {
     const sel = [...dlg.querySelectorAll("[data-bid]:checked")].map(x => x.dataset.bid);
     const willDone = id => acad(id) === "done" || sel.includes(id);
@@ -2697,8 +2597,8 @@ function renderDrawer(id, {ev}){
       <dt>Período recomendado</dt><dd>${c.period ? c.period + "º" : "Sem período (optativa)"}</dd>
       <dt>Tipo</dt><dd>${kindTxt}</dd>
       <dt>Carga horária</dt><dd>${chHtml(c)}</dd>
-      <dt>Código</dt><dd>${BASE_TT.courses[c.id]?.code ? `${esc(BASE_TT.courses[c.id].code)} <span class="muted">(${esc(TT_SRC)})</span>` : `<span class="muted">Não informado no PPC nem no quadro de horários</span>`}</dd>
-      ${c.minH ? `<dt>Exigência</dt><dd>Mínimo de ${c.minH} h cumpridas em componentes curriculares</dd>` : ""}
+      <dt>Código</dt><dd>${BASE_TT.courses[c.id]?.code ? `${esc(BASE_TT.courses[c.id].code)} <span class="muted">(${esc(TT_SRC)})</span>` : `<span class="muted">Não informado no PPC nem nos horários</span>`}</dd>
+      ${c.minH ? `<dt>Exigência</dt><dd>Para se matricular nesta disciplina: mínimo de ${fmtH(c.minH)} h cumpridas em componentes curriculares</dd>` : ""}
     </dl>
     <h3>Pré-requisitos e correquisitos</h3>${reqList}
     <h3>Situação acadêmica informada</h3>
@@ -3204,7 +3104,7 @@ function scheduleSectionHtml(c){
   const cid = c.id;
   const base = BASE_TT.courses[cid];
   const head = `<h3>Turmas e horários</h3>
-    <p class="small muted" style="margin:0 0 6px">${base ? `Base: ${esc(TT_SRC)}${base.code ? " · " + esc(base.code) : ""}` : `Esta disciplina não aparece na ${esc(TT_SRC)}. Você pode cadastrar o horário manualmente.`}</p>
+    <p class="small muted" style="margin:0 0 6px">${base ? `Base: ${esc(TT_SRC)}${base.code ? " · " + esc(base.code) : ""}` : `Esta disciplina não aparece ${esc(TT_NA)}. Você pode cadastrar o horário manualmente.`}</p>
     ${base?.note ? `<p class="small note-box">${esc(base.note)}</p>` : ""}`;
   if (ui.editing && ui.editing.cid === cid) return head + editorHtml();
   const list = turmasOf(cid), eff = effectiveTurma(cid), pv = ui.preview && ui.preview.cid === cid ? ui.preview : null;
@@ -3228,7 +3128,7 @@ function scheduleSectionHtml(c){
         <div class="turma-top">${multi ? `<label class="check"><input type="radio" name="turmaSel" value="${esc(t.id)}" ${selId === t.id ? "checked" : ""}> <strong>${esc(turmaName(t))}</strong></label>` : `<strong>${esc(turmaName(t))}</strong>`}
           ${badges}</div>
         ${t.professor ? `<div class="small">Professor: ${esc(t.professor)}</div>` : ""}
-        ${t.ausente ? `<p class="small aus-note">Esta turma não veio na ${esc(TT_SRC)}. O horário abaixo é o anterior, apenas como referência.</p>` : ""}
+        ${t.ausente ? `<p class="small aus-note">Esta turma não veio ${esc(TT_NA)}. O horário abaixo é o anterior, apenas como referência.</p>` : ""}
         ${t.curso ? `<div class="small muted">Turma ofertada para ${esc(t.curso)}</div>` : ""}
         ${t.tema ? `<div class="small">Tema: ${esc(t.tema)}</div>` : ""}
         <ul class="sched-list">${t.meetings.map(m => `<li><span>${esc(meetTxt(m))}${isDated(m) ? ` <span class="dated-txt">· ${esc(datesTxt(m))}</span>` : ""}${m.note ? ` <span class="muted" title="${esc(m.note)}">${esc(m.note)}</span>` : ""}</span></li>`).join("")}</ul>
@@ -3270,7 +3170,7 @@ function bindScheduleSection(cid){
   });
   document.querySelectorAll("#dBody [data-tdel]").forEach(b => b.onclick = () => {
     const t = findTurma(cid, b.dataset.tdel); if (!t) return;
-    const msg = t.origin === "base" ? `Ocultar ${turmaName(t)} (da ${TT_SRC}) nesta disciplina? Você poderá restaurá-la depois.` : `Excluir ${turmaName(t)}, adicionada por você? Esta ação não pode ser desfeita.`;
+    const msg = t.origin === "base" ? `Ocultar ${turmaName(t)} (${TT_DA}) nesta disciplina? Você poderá restaurá-la depois.` : `Excluir ${turmaName(t)}, adicionada por você? Esta ação não pode ser desfeita.`;
     if (!confirm(msg)) return;
     applyChange(() => {
       if (t.origin === "base"){ (state.hiddenBase[cid] ||= []).push(t.baseId); }
@@ -3404,7 +3304,7 @@ function buildPrint(filter){
     <h2>Disciplinas selecionadas sem horário cadastrado</h2>
     ${missingNone.length ? `<ul>${missingNone.map(id => `<li>${BY_ID.get(id).n} – ${esc(nameOf(id))} (${kindLabel(sel.get(id))})</li>`).join("")}</ul>` : `<p>Nenhuma.</p>`}
     ${pdfCalendarHtml()}
-    <p class="pr-note">Documento gerado pelo planejador curricular a partir da ${esc(TT_SRC)} e dos dados informados pelo estudante. Horários, turmas e locais dependem da oferta oficial da UFU.</p>
+    <p class="pr-note">Documento gerado pelo planejador curricular a partir ${esc(TT_DA)} e dos dados informados pelo estudante. Horários, turmas e locais dependem da oferta oficial da UFU.</p>
   </section>`;
   document.getElementById("printArea").innerHTML = out;
   return { pages: chunks.length + 1, scale };
@@ -3527,7 +3427,7 @@ function validateImport(obj, fromFile){
 }
 const FILE_TAG = CURRICULUM.tag;
 const FORMAT_VERSION = 5;                 // versão do formato do arquivo JSON
-const APP_NAMES = {"planejador-ee-ufu":"Engenharia Elétrica","planejador-eca-ufu":"Engenharia de Controle e Automação","planejador-ecp-ufu":"Engenharia de Computação"};
+const APP_NAMES = {"planejador-ee-ufu":"Engenharia Elétrica","planejador-eca-ufu":"Engenharia de Controle e Automação","planejador-ecp-ufu":"Engenharia de Computação","planejador-eb-ufu":"Engenharia Biomédica","planejador-eet-ufu":"Engenharia Eletrônica e de Telecomunicações"};
 const turmaLabelOf = (cid, tid) => { const t = findTurma(cid, tid); return t ? turmaName(t) : tid; };
 function exportPayload(){
   const list = v => COURSES.filter(c => acad(c.id) === v).map(c => label(c));
@@ -3598,7 +3498,7 @@ function importText(text){
     if (other){
       if (!confirm(`Este arquivo é da ${other.CURRICULUM.tag}, e você está usando a ${CURRICULUM.tag}.\n\nAbrir a ${other.CURRICULUM.tag} e importar o arquivo nela? O progresso da matriz atual não será alterado.`)){ toast("Importação cancelada. Nada foi alterado."); return; }
       try { sessionStorage.setItem(DS_PENDING_KEY, text); }
-      catch(e){ alert(`Não foi possível guardar o arquivo para a troca de matriz. Troque para a ${other.CURRICULUM.tag} em "Trocar matriz" e importe o arquivo de novo.`); return; }
+      catch(e){ alert(`Não foi possível guardar o arquivo para a troca de matriz. Troque para a ${other.CURRICULUM.tag} em "Trocar curso ou matriz" e importe o arquivo de novo.`); return; }
       switchDataset(other.id); return;
     }
     const res = validateImport(obj, true);
@@ -3842,7 +3742,7 @@ function buildIcs(list){
 const icsFileName = () => `Agenda - ${FILE_TAG}.ics`;
 function icsCurrent(){
   const from = document.getElementById("icsFrom").value, to = document.getElementById("icsTo").value;
-  if (!ISO_RE.test(from) || !ISO_RE.test(to) || to < from) return { err: "Escolha um período válido (a data final precisa ser depois da inicial)." };
+  if (!ISO_RE.test(from) || !ISO_RE.test(to) || to < from) return { err: "Escolha um período válido (a data final não pode ser anterior à inicial)." };
   const r = icsCollect(from, to, document.getElementById("icsAulas").checked, document.getElementById("icsMine").checked);
   return { ...r, from, to };
 }
@@ -3921,7 +3821,7 @@ function showTTDialog(info){
   const alts = BASE_TT.alteracoes || [];
   const quando = BASE_TT.atualizado_em ? new Date(BASE_TT.atualizado_em).toLocaleDateString("pt-BR") : "";
   document.getElementById("ttBody").innerHTML = `
-    <p>Os horários foram atualizados com a ${esc(TT_SRC)}${quando ? ` em ${esc(quando)}` : ""}.${info?.nEdits ? ` Os horários que você tinha editado (${info.nEdits} turma${info.nEdits > 1 ? "s" : ""}) foram substituídos pelos da planilha.` : ""}</p>
+    <p>Os horários foram atualizados com ${esc(TT_A)}${quando ? ` em ${esc(quando)}` : ""}.${info?.nEdits ? ` Os horários que você tinha editado (${info.nEdits} turma${info.nEdits > 1 ? "s" : ""}) foram substituídos pelos da planilha.` : ""}</p>
     ${alts.length ? `<p class="small muted" style="margin:0 0 4px">${alts.length} disciplina${alts.length > 1 ? "s" : ""} com mudança:</p>
     <ul class="tt-list">${alts.map(a => `<li><button type="button" class="linklike" data-ttopen="${esc(a.cid)}">${esc(BY_ID.get(a.cid) ? label(BY_ID.get(a.cid)) : a.nome)}</button><ul>${a.itens.map(i => `<li>${esc(i)}</li>`).join("")}</ul></li>`).join("")}</ul>` : `<p class="small muted">Nenhuma disciplina desta matriz teve horário alterado.</p>`}`;
   const dlg = document.getElementById("ttDlg");
@@ -4004,7 +3904,7 @@ function init(){
   document.getElementById("btnImport").onclick = () => fi.click();
   fi.onchange = () => { if (fi.files[0]) importFile(fi.files[0]); fi.value = ""; };
   document.getElementById("btnClear").onclick = () => {
-    if (confirm(`Apagar o progresso da ${CURRICULUM.tag} (aprovações, disciplinas em andamento e planejamento) neste navegador? As outras matrizes não serão alteradas. Esta ação não pode ser desfeita. Se quiser, exporte antes.`)){
+    if (confirm(`Apagar o progresso da ${CURRICULUM.tag} (aprovações, disciplinas em andamento, planejamento, turmas escolhidas ou editadas e seus compromissos) neste navegador? As outras matrizes não serão alteradas. Esta ação não pode ser desfeita. Se quiser, exporte antes.`)){
       state = defaultState(); ui.focus = null; ui.batchUndo = null; document.getElementById("drawer").classList.remove("open");
       try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
       syncControls(); render(); toast("Progresso apagado.");
@@ -4023,7 +3923,7 @@ function init(){
       <h3>Planejar o semestre</h3><p>Marque "Planejar matrícula" e veja em "Meu semestre" as turmas, a grade, os conflitos de horário e o PDF.</p>
       <h3>Outro aparelho</h3><p>Em "Opções", use Exportar JSON e, no outro aparelho, Importar progresso. A sincronização não é automática.</p>
       <h3>Sobre esta matriz</h3><p>${esc(CURRICULUM.texts.obr)}</p><p>${esc(CURRICULUM.texts.opt.replace("{n}", nOpt))}</p>
-      <p>Horários base: ${esc(BASE_TT.fonte)}. Aulas que acontecem só em algumas semanas mostram as datas; na grade, use "Mostrar" para ver uma semana específica. Quando os horários forem atualizados, aparece o aviso "Alterações realizadas". Confira a oferta oficial antes da matrícula.</p>
+      <p>Horários base: ${esc(BASE_TT.fonte)}. Aulas que acontecem só em algumas semanas mostram as datas; na grade, use o seletor "Semana" (aparece quando há aulas em datas específicas) para ver uma semana. Quando os horários forem atualizados, aparece o aviso "Alterações realizadas". Confira a oferta oficial antes da matrícula.</p>
       <h3>Compromissos e agenda</h3><p>Em "Meu semestre", use "Adicionar compromisso" para incluir estágio, treino, monitoria e outros horários fixos. Eles aparecem na grade, no PDF e avisam quando batem com uma aula. "Exportar para agenda" gera um arquivo .ics para o Google Agenda ou a agenda do celular, onde você pode configurar lembretes. Feriados (nacionais e de Uberlândia) e dias sem aula do calendário da UFU ficam livres na agenda, com a observação do dia.</p>`;
     showDialog(document.getElementById("helpDlg"));
   };
