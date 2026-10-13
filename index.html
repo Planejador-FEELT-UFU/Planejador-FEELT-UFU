@@ -590,6 +590,51 @@ fieldset.mf .check{margin-right:14px}
 #mfDaysBox[hidden],#mfDateBox[hidden]{display:none}
 .pr-mine{background:color-mix(in srgb,var(--evc) 14%,#fff);border:.5mm solid var(--evc)}
 .help-body h3{font-size:.95rem;margin:14px 0 4px;color:var(--ink)}
+/* ===== Notas do semestre ===== */
+.st-reprov{color:var(--warn);background:var(--warn-bg);border-color:var(--warn)}
+.gr-card{border:1px solid var(--border);border-radius:10px;padding:12px;margin:6px 0 10px;background:var(--surface)}
+.gr-card.gr-aprovado{border-color:var(--ok)}.gr-card.gr-reprovado,.gr-card.gr-erro{border-color:var(--warn)}.gr-card.gr-andamento{border-color:var(--pend)}
+.gr-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.gr-big{font-size:2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.gr-bar{position:relative;display:block;height:14px;border-radius:7px;background:var(--surface-2);margin:22px 0 6px;overflow:visible}
+.gr-bar.mini{height:8px;margin:0;width:100%}
+.gr-got{position:absolute;left:0;top:0;bottom:0;border-radius:7px 0 0 7px;background:var(--accent)}
+.gr-open{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 35%,transparent) 0 4px,transparent 4px 8px)}
+.gr-goal{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px solid var(--ink)}
+.gr-goal span{position:absolute;bottom:100%;transform:translateX(-50%);font-size:.72rem;font-weight:700;white-space:nowrap;margin-bottom:2px;color:var(--ink)}
+.gr-legend{display:flex;gap:12px;flex-wrap:wrap}
+.gr-k{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.gr-k.got{background:var(--accent)}.gr-k.open{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 45%,transparent) 0 3px,transparent 3px 6px);border:1px solid var(--border)}
+.gr-k.goal{width:2px;background:var(--ink)}
+.gr-msg{margin:8px 0 4px;font-size:.9rem}
+.gr-wrap{overflow-x:auto;margin-bottom:8px}
+.gr-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.gr-table th,.gr-table td{padding:6px 6px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle}
+.gr-table th{font-size:.76rem;color:var(--muted);font-weight:700}
+.gr-table .num{text-align:right;font-variant-numeric:tabular-nums}
+.gr-table tfoot td{font-weight:700;border-bottom:0}
+.gr-nome{font-weight:600;overflow-wrap:break-word;min-width:6.5em}
+.gr-tipo{display:block;font-size:.74rem;font-weight:400;color:var(--muted)}
+.gr-table tr.gr-pend .gr-nome{color:var(--muted)}
+.gr-min{display:block;font-size:.74rem;color:var(--pend);font-weight:600}
+.gr-act{text-align:right;width:1%}
+.gr-act .btn{display:block;width:100%;margin:2px 0}
+.gr-form td{background:var(--surface-2)}
+.gr-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gr-form-grid label{display:flex;flex-direction:column;gap:2px;font-size:.78rem;color:var(--muted);min-width:0}
+.gr-form-grid .gr-f-nome{grid-column:1/-1}
+.gr-form-grid input,.gr-form-grid select{padding:6px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);min-height:34px;font-size:.9rem;width:100%;min-width:0}
+.gr-form-act{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.gr-list{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column}
+.gr-item{display:grid;grid-template-columns:minmax(0,1fr) auto 120px auto;gap:4px 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.gr-item:last-child{border-bottom:0}
+.gr-item-nm{text-align:left}
+.gr-item-val{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gr-item-det{grid-column:1/-1}
+@media (max-width:560px){
+  .gr-item{grid-template-columns:minmax(0,1fr) auto}
+  .gr-item .gr-bar.mini{grid-column:1/-1}
+}
 .help-body p{margin:0 0 6px;font-size:.9rem}
 </style>
 <script>
@@ -644,6 +689,14 @@ try { const t = localStorage.getItem("planejador-ufu:tema"); if (t === "dark" ||
     <h2 id="hProg">Seu progresso</h2>
     <div class="stats compact" id="stats"></div>
     <button type="button" class="btn small" id="statsMore" aria-expanded="false" style="margin-top:8px">Ver detalhes</button>
+  </section>
+
+  <section class="panel" aria-labelledby="hNotas" data-tab="sem">
+    <div class="plan-head">
+      <h2 id="hNotas" style="margin:0">Notas do semestre</h2>
+      <div class="small muted" id="notasSummary"></div>
+    </div>
+    <div id="notasBody"></div>
   </section>
 
   <section class="panel" aria-labelledby="hPlan" data-tab="sem">
@@ -1933,7 +1986,7 @@ let state = defaultState();
 function defaultState(){
   return { app: CURRICULUM.app, curso: CURRICULUM.curso, matriz: CURRICULUM.matriz, version: 5,
            status: {}, plan: [], extOptH: 0, aacH: 0, semester: "",
-           turmaEdits: {}, hiddenBase: {}, userTurmas: {}, chosen: {}, mine: [],
+           turmaEdits: {}, hiddenBase: {}, userTurmas: {}, chosen: {}, mine: [], grades: {}, gradeAuto: {},
            settings: { doingAsDone: false, aacCountsForThreshold: false } };
 }
 const ui = { q: "", period: "", status: "all", view: "grid", focus: null, unlocked: new Set(), week: "both", editing: null, preview: null, wkMode: "week", wkDay: 1, wkWeek: "" };
@@ -2183,6 +2236,7 @@ function render(){
   keepScroll(() => {
     LAST = evaluateAll();
     renderStats(LAST);
+    renderNotas();
     renderPlan(LAST);
     renderWeek();
     renderMain(LAST);
@@ -2614,6 +2668,7 @@ function renderDrawer(id, {ev}){
       ${!planned && coPartners.length ? `<button class="btn" id="dPlanGroup" type="button">Planejar com ${esc(orJoin(coPartners.map(nameOf)))}</button>` : ""}
     </div>`}
     ${iss.length ? `<ul class="reqs" style="margin-top:8px">${iss.map(i=>`<li class="no"><span class="mk" aria-hidden="true">!</span><span>${esc(i.text)}</span></li>`).join("")}</ul>` : ""}
+    ${gradeSectionHtml(c)}
     ${scheduleSectionHtml(c)}
     <h3>Disciplinas que dependem diretamente desta</h3>${depHtml}`;
   document.querySelectorAll('#dBody input[name=acad]').forEach(r => r.onchange = ev2 => setAcad(id, ev2.target.value));
@@ -2621,6 +2676,7 @@ function renderDrawer(id, {ev}){
   const g = document.getElementById("dPlanGroup");
   if (g) g.onclick = () => addPlan([id, ...coPartners]);
   bindScheduleSection(id);
+  bindGradeSection(id);
   drawerEl.dataset.cid = id;
   drawerEl.scrollTop = keepTop;
 }
@@ -2629,7 +2685,7 @@ function renderDrawer(id, {ev}){
    AÇÕES
    ===================================================================== */
 function setAcad(id, v){
-  applyChange(() => { if (v === "none") delete state.status[id]; else state.status[id] = v; });
+  applyChange(() => { delete state.gradeAuto[id]; if (v === "none") delete state.status[id]; else state.status[id] = v; });
 }
 function togglePlan(id){
   applyChange(() => { state.plan = state.plan.includes(id) ? state.plan.filter(x => x !== id) : [...state.plan, id]; });
@@ -2655,7 +2711,7 @@ function openDrawer(id){
 function closeDrawer(){
   const was = ui.focus; ui.focus = null;
   if (ui.editing?.dirty) toast("Edição de turma não salva foi descartada.");
-  ui.editing = null;
+  ui.editing = null; ui.gradeEdit = null;
   const hadPrev = !!ui.preview;
   if (hadPrev) toast("Pré-visualização cancelada.");
   ui.preview = null;
@@ -3418,6 +3474,14 @@ function validateImport(obj, fromFile){
                  : tid.startsWith("u:") && (st.userTurmas[cid] || []).some(u => u.id === tid.slice(2));
     if (exists) st.chosen[cid] = tid; else ignored.push(`${cid} (turma escolhida não encontrada)`);
   }
+  // Notas do semestre (avaliações por disciplina)
+  if (isObj(obj.grades)) for (const [cid, arr] of Object.entries(obj.grades)){
+    if (!BY_ID.has(cid) || !Array.isArray(arr)) { ignored.push(`${cid} (notas)`); continue; }
+    const list = arr.slice(0, 40).map(cleanGrade).filter(Boolean);
+    if (list.length < Math.min(arr.length, 40)) ignored.push(`${cid}: ${Math.min(arr.length, 40) - list.length} avaliação(ões) inválida(s)`);
+    if (list.length) st.grades[cid] = list;
+  }
+  if (isObj(obj.gradeAuto)) for (const [cid, v] of Object.entries(obj.gradeAuto)) if (v === true && st.grades[cid]) st.gradeAuto[cid] = true;
   st.semester = typeof obj.semester === "string" ? obj.semester.trim().slice(0, 30) : "";
   if (obj.settings && typeof obj.settings === "object"){
     st.settings.doingAsDone = !!obj.settings.doingAsDone;
@@ -3443,6 +3507,7 @@ function exportPayload(){
       planejadas: state.plan.filter(id => BY_ID.has(id)).map(id => label(BY_ID.get(id))),
       turmasEscolhidas: Object.fromEntries(Object.entries(state.chosen).filter(([cid]) => BY_ID.has(cid)).map(([cid, tid]) => [label(BY_ID.get(cid)), turmaLabelOf(cid, tid)])),
       turmasEditadas: nEdit, turmasCriadas: nUser,
+      notas: Object.fromEntries(Object.keys(state.grades).filter(cid => BY_ID.has(cid)).map(cid => { const sm = gradeSummary(cid); return [label(BY_ID.get(cid)), `${fmtP(sm.nota)} de 100 · ${GRADE_ST[sm.status][0]}`]; })),
       semestreReferencia: state.semester || null
     },
     ...state, version: FORMAT_VERSION
@@ -3577,6 +3642,240 @@ function syncControls(){ document.getElementById("optDoing").checked = !!state.s
 /* =====================================================================
    INICIALIZAÇÃO
    ===================================================================== */
+/* =====================================================================
+   NOTAS DO SEMESTRE
+   A nota final vai de 0 a 100 pontos; a aprovação exige 60.
+     state.grades[cid] = [{id, nome, tipo, valor, nota, status}]
+       valor  = pontos que a avaliação vale (a soma das avaliações não passa de 100)
+       nota   = pontos obtidos, de 0 até o valor; null enquanto não sai
+       status = "" (automático: realizada quando tem nota) | "realizada" | "pendente"
+     state.gradeAuto[cid] = true quando a aprovação foi marcada pelas notas
+   Pontos ainda não cadastrados (soma < 100) contam como pendentes.
+   ===================================================================== */
+const NOTA_META = 60, NOTA_TOTAL = 100;
+const GRADE_TYPES = ["Prova", "Lista", "Trabalho", "Seminário", "Participação", "Outro"];
+const GRADE_ST = { aprovado: ["Aprovado", "st-concluida"], andamento: ["Em andamento", "st-pendente"], reprovado: ["Reprovado", "st-reprov"],
+                   erro: ["Revise os valores", "st-reprov"], vazio: ["Sem avaliações", "st-bloqueada"] };
+const r2 = x => Math.round(x * 100) / 100;
+const fmtP = x => r2(x).toLocaleString("pt-BR", { maximumFractionDigits: 2 });
+// "7,5" ou "7.5" -> 7.5 · vazio -> null · texto inválido -> NaN
+function parseNum(v){
+  if (v === null || v === undefined) return null;
+  if (typeof v === "number") return Number.isFinite(v) ? v : NaN;
+  const t = String(v).trim().replace(",", ".");
+  if (t === "") return null;
+  return /^-?\d+(\.\d+)?$/.test(t) ? Number(t) : NaN;
+}
+const gradeDone = g => g.status === "realizada" || (g.status === "" && g.nota !== null);
+let gradeSeq = 0;
+const newGradeId = () => "g" + Date.now().toString(36) + (gradeSeq++).toString(36);
+
+// Erros de uma avaliação; othersTotal = soma dos valores das outras avaliações da disciplina
+function gradeErrors(g, othersTotal){
+  const e = [];
+  if (!g.nome) e.push("Informe o nome da avaliação.");
+  if (g.valor === null) e.push("Informe quantos pontos a avaliação vale.");
+  else if (Number.isNaN(g.valor)) e.push("Valor inválido: use um número, como 30 ou 7,5.");
+  else if (g.valor < 0) e.push("O valor não pode ser negativo.");
+  else if (g.valor === 0) e.push("O valor precisa ser maior que zero.");
+  else if (r2(othersTotal + g.valor) > NOTA_TOTAL)
+    e.push(`A soma dos valores ficaria em ${fmtP(othersTotal + g.valor)} pontos, mas a nota final vai até ${NOTA_TOTAL}. Restam ${fmtP(Math.max(0, NOTA_TOTAL - othersTotal))} ponto(s) para distribuir.`);
+  if (Number.isNaN(g.nota)) e.push("Nota inválida: use um número, como 24 ou 7,5.");
+  else if (g.nota !== null && g.nota < 0) e.push("A nota não pode ser negativa.");
+  else if (g.nota !== null && g.valor > 0 && g.nota > g.valor) e.push(`A nota (${fmtP(g.nota)}) não pode passar do valor da avaliação (${fmtP(g.valor)}).`);
+  if (g.status === "realizada" && g.nota === null) e.push("Uma avaliação realizada precisa de nota. Informe a nota ou marque como pendente.");
+  return e;
+}
+// Avaliação vinda de arquivo ou do navegador: devolve a versão limpa ou null
+function cleanGrade(m){
+  if (!m || typeof m !== "object") return null;
+  const g = { id: typeof m.id === "string" && m.id ? m.id.slice(0, 30) : newGradeId(),
+    nome: typeof m.nome === "string" ? m.nome.trim().slice(0, 60) : "",
+    tipo: GRADE_TYPES.includes(m.tipo) ? m.tipo : "Outro",
+    valor: parseNum(m.valor), nota: parseNum(m.nota),
+    status: ["realizada", "pendente"].includes(m.status) ? m.status : "" };
+  return gradeErrors(g, 0).length ? null : g;
+}
+
+// Situação da disciplina pelas notas
+function gradeSummary(cid){
+  const list = state.grades[cid] || [];
+  const done = list.filter(gradeDone), pend = list.filter(g => !gradeDone(g));
+  const total = r2(list.reduce((s, g) => s + g.valor, 0));            // pontos cadastrados
+  const nota = r2(done.reduce((s, g) => s + g.nota, 0));              // nota acumulada
+  const semCadastro = r2(Math.max(0, NOTA_TOTAL - total));            // pontos ainda não cadastrados
+  const restante = r2(pend.reduce((s, g) => s + g.valor, 0) + semCadastro);
+  const max = r2(nota + restante);                                    // nota máxima ainda possível
+  const falta = r2(Math.max(0, NOTA_META - nota));
+  let status;
+  if (!list.length) status = "vazio";
+  else if (total > NOTA_TOTAL) status = "erro";
+  else if (nota >= NOTA_META) status = "aprovado";
+  else if (max < NOTA_META) status = "reprovado";
+  else status = "andamento";
+  return { list, done, pend, total, nota, semCadastro, restante, max, falta, status,
+           completa: status === "aprovado" && restante === 0 };
+}
+
+// Aprovação automática: todas as avaliações realizadas e nota final >= 60.
+// Se as notas mudarem e a aprovação deixar de valer, volta para "Em andamento".
+function syncGradeApproval(cid){
+  const sm = gradeSummary(cid);
+  if (sm.completa){
+    if (acad(cid) !== "done"){ state.status[cid] = "done"; state.gradeAuto[cid] = true; return `Nota final ${fmtP(sm.nota)}: ${nameOf(cid)} foi marcada como concluída com aprovação.`; }
+  } else if (state.gradeAuto[cid]){
+    delete state.gradeAuto[cid];
+    if (acad(cid) === "done"){ state.status[cid] = "doing"; return `Com a mudança, a nota não fecha mais a aprovação: ${nameOf(cid)} voltou para "Em andamento".`; }
+  }
+  return null;
+}
+
+// Barra 0–100: nota obtida, pontos em aberto e a meta de 60
+function gradeBarHtml(sm, mini){
+  const w = x => Math.max(0, Math.min(100, x));
+  return `<span class="gr-bar ${mini ? "mini" : ""}" ${mini ? `aria-hidden="true"` : `role="img" aria-label="Nota atual ${fmtP(sm.nota)} de 100; meta 60${sm.restante ? `; ${fmtP(sm.restante)} ponto(s) em aberto` : ""}"`}>
+    <span class="gr-got" style="width:${w(sm.nota)}%"></span><span class="gr-open" style="left:${w(sm.nota)}%;width:${w(Math.min(sm.restante, 100 - sm.nota))}%"></span>
+    <span class="gr-goal" style="left:${NOTA_META}%">${mini ? "" : `<span>Meta ${NOTA_META}</span>`}</span></span>`;
+}
+function gradeMsg(sm){
+  if (sm.status === "erro") return `A soma dos valores é ${fmtP(sm.total)} pontos e passa de 100. Corrija os valores para calcular a situação.`;
+  if (sm.status === "vazio") return "Cadastre as avaliações para acompanhar a nota.";
+  if (sm.status === "aprovado") return sm.completa ? `Nota final ${fmtP(sm.nota)}: atingiu os 60 pontos.`
+    : `Você já garantiu os 60 pontos. Ainda há ${fmtP(sm.restante)} ponto(s) em avaliações pendentes.`;
+  if (sm.status === "reprovado") return sm.restante > 0
+    ? `Mesmo com nota máxima no que resta (${fmtP(sm.restante)} ponto(s)), a nota chegaria a ${fmtP(sm.max)}. Não é mais possível chegar a 60.`
+    : `A nota final ficou em ${fmtP(sm.nota)} pontos; faltaram ${fmtP(sm.falta)} para 60.`;
+  return `Faltam <strong>${fmtP(sm.falta)}</strong> ponto(s) para 60. Nas avaliações restantes, que valem ${fmtP(sm.restante)} ponto(s), você precisa tirar pelo menos <strong>${fmtP(sm.falta)}</strong> (${fmtP(sm.falta / sm.restante * 100)}% de aproveitamento).`;
+}
+function gradeCardHtml(sm){
+  const [lab, cls] = GRADE_ST[sm.status];
+  return `<div class="gr-card gr-${sm.status}" aria-live="polite">
+    <div class="gr-top"><div><span class="gr-big">${sm.status === "vazio" ? "—" : fmtP(sm.nota)}</span> <span class="muted">/ 100 pontos</span></div><span class="chip ${cls}">${lab}</span></div>
+    ${gradeBarHtml(sm, false)}
+    <div class="gr-legend small muted"><span><i class="gr-k got"></i>Nota obtida</span><span><i class="gr-k open"></i>Em aberto</span><span><i class="gr-k goal"></i>Meta (60)</span></div>
+    <p class="gr-msg">${gradeMsg(sm)}</p>
+    ${sm.semCadastro > 0 && sm.status !== "vazio" && sm.status !== "erro" ? `<p class="small muted" style="margin:0">${fmtP(sm.semCadastro)} ponto(s) ainda não cadastrado(s) contam como pendentes.</p>` : ""}
+  </div>`;
+}
+function gradeRowHtml(g, sm){
+  const done = gradeDone(g);
+  const min = !done && sm.status === "andamento" && sm.restante > 0 ? `<span class="gr-min">precisa de ${fmtP(g.valor * sm.falta / sm.restante)}</span>` : "";
+  const notaTxt = done ? fmtP(g.nota) : g.nota !== null ? `<span class="muted" title="Não entra no cálculo enquanto estiver pendente">${fmtP(g.nota)} (não conta)</span>` : `<span class="muted">—</span>`;
+  return `<tr class="${done ? "" : "gr-pend"}">
+    <td class="gr-nome">${esc(g.nome)}<span class="gr-tipo">${esc(g.tipo)}</span></td>
+    <td class="num">${notaTxt} <span class="muted">/ ${fmtP(g.valor)}</span>${min}</td>
+    <td><span class="chip ${done ? "st-concluida" : "st-pendente"}">${done ? "Realizada" : "Pendente"}</span></td>
+    <td class="gr-act"><button type="button" class="btn small" data-gedit="${esc(g.id)}" aria-label="Editar ${esc(g.nome)}">Editar</button><button type="button" class="btn small danger" data-gdel="${esc(g.id)}" aria-label="Remover ${esc(g.nome)}">Remover</button></td>
+  </tr>`;
+}
+function gradeFormHtml(ed){
+  const d = ed.draft;
+  return `<tr class="gr-form"><td colspan="4"><div class="gr-form-grid" id="grForm">
+    <label class="gr-f-nome">Avaliação<input type="text" id="grNome" maxlength="60" value="${esc(d.nome)}" placeholder="Ex.: Prova 1" autocomplete="off"></label>
+    <label>Tipo<select id="grTipo">${GRADE_TYPES.map(t => `<option ${d.tipo === t ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+    <label>Valor (pontos)<input type="text" inputmode="decimal" id="grValor" value="${esc(d.valor)}" placeholder="Ex.: 30" autocomplete="off"></label>
+    <label>Nota obtida <span class="muted">(se já saiu)</span><input type="text" inputmode="decimal" id="grNota" value="${esc(d.nota)}" placeholder="Ex.: 24,5" autocomplete="off"></label>
+    <label>Status<select id="grStatus"><option value="" ${!d.status ? "selected" : ""}>Automático (pela nota)</option><option value="realizada" ${d.status === "realizada" ? "selected" : ""}>Realizada</option><option value="pendente" ${d.status === "pendente" ? "selected" : ""}>Pendente</option></select></label>
+    ${ed.errors.length ? `<div class="sched-err gr-err" role="alert">${ed.errors.map(esc).join(" ")}</div>` : ""}
+    <div class="gr-form-act"><button type="button" class="btn primary" id="grSave">${ed.gid ? "Salvar alterações" : "Adicionar"}</button><button type="button" class="btn" id="grCancel">Cancelar</button></div>
+  </div></td></tr>`;
+}
+// Seção "Notas" do painel da disciplina
+function gradeSectionHtml(c){
+  const cid = c.id, s = acad(cid), list = state.grades[cid] || [];
+  if (s !== "doing" && !list.length)
+    return s === "done" ? "" : `<h3>Notas</h3><p class="small muted">Para acompanhar as notas, marque a disciplina como "Em andamento".</p>`;
+  const sm = gradeSummary(cid), ed = ui.gradeEdit?.cid === cid ? ui.gradeEdit : null;
+  const rows = list.map(g => ed && ed.gid === g.id ? gradeFormHtml(ed) : gradeRowHtml(g, sm)).join("") + (ed && !ed.gid ? gradeFormHtml(ed) : "");
+  return `<h3 id="gradesH">Notas</h3>
+    ${gradeCardHtml(sm)}
+    ${rows ? `<div class="gr-wrap"><table class="gr-table">
+      <thead><tr><th>Avaliação</th><th class="num">Nota / valor</th><th>Status</th><th><span class="sr-only">Ações</span></th></tr></thead>
+      <tbody>${rows}</tbody>
+      ${list.length ? `<tfoot><tr><td>Total</td><td class="num">${fmtP(sm.nota)} <span class="muted">/ ${fmtP(sm.total)}</span></td><td colspan="2" class="small muted">${sm.total < NOTA_TOTAL ? `faltam ${fmtP(NOTA_TOTAL - sm.total)} pts a cadastrar` : sm.total > NOTA_TOTAL ? "passa de 100" : "valores fecham 100"}</td></tr></tfoot>` : ""}
+    </table></div>` : `<p class="small muted">Nenhuma avaliação cadastrada. Comece pelas que o professor já divulgou.</p>`}
+    ${ed ? "" : `<button type="button" class="btn" id="grAdd">+ Adicionar avaliação</button>`}
+    <p class="small muted">A nota final vai de 0 a 100 pontos e a aprovação exige 60. A aprovação real também depende da frequência mínima.</p>`;
+}
+function bindGradeSection(cid){
+  const body = document.getElementById("dBody"), redraw = () => renderDrawer(cid, LAST);
+  const startEdit = g => {
+    ui.gradeEdit = { cid, gid: g ? g.id : null, errors: [],
+      draft: g ? { nome: g.nome, tipo: g.tipo, valor: fmtP(g.valor), nota: g.nota === null ? "" : fmtP(g.nota), status: g.status }
+               : { nome: "", tipo: "Prova", valor: "", nota: "", status: "" } };
+    redraw(); document.getElementById("grNome")?.focus();
+  };
+  const add = document.getElementById("grAdd"); if (add) add.onclick = () => startEdit(null);
+  body.querySelectorAll("[data-gedit]").forEach(b => b.onclick = () => startEdit((state.grades[cid] || []).find(g => g.id === b.dataset.gedit)));
+  body.querySelectorAll("[data-gdel]").forEach(b => b.onclick = () => {
+    const g = (state.grades[cid] || []).find(x => x.id === b.dataset.gdel); if (!g) return;
+    if (!confirm(`Remover a avaliação "${g.nome}"?`)) return;
+    let msg = null;
+    applyChange(() => {
+      state.grades[cid] = state.grades[cid].filter(x => x.id !== g.id);
+      if (!state.grades[cid].length) delete state.grades[cid];
+      msg = syncGradeApproval(cid);
+    });
+    toastAfter(msg || `Avaliação "${g.nome}" removida.`);
+  });
+  const form = document.getElementById("grForm"); if (!form) return;
+  const read = () => ({ nome: document.getElementById("grNome").value.trim(), tipo: document.getElementById("grTipo").value,
+    valor: document.getElementById("grValor").value, nota: document.getElementById("grNota").value, status: document.getElementById("grStatus").value });
+  const save = () => {
+    const ed = ui.gradeEdit; ed.draft = read();
+    const g = { id: ed.gid || newGradeId(), nome: ed.draft.nome.slice(0, 60), tipo: GRADE_TYPES.includes(ed.draft.tipo) ? ed.draft.tipo : "Outro",
+      valor: parseNum(ed.draft.valor), nota: parseNum(ed.draft.nota), status: ["realizada", "pendente"].includes(ed.draft.status) ? ed.draft.status : "" };
+    const others = (state.grades[cid] || []).filter(x => x.id !== ed.gid).reduce((t, x) => t + x.valor, 0);
+    ed.errors = gradeErrors(g, others);
+    if (ed.errors.length){ redraw(); document.getElementById("grNome")?.focus(); return; }
+    ui.gradeEdit = null;
+    let msg = null;
+    applyChange(() => {
+      const arr = state.grades[cid] ||= [];
+      const i = arr.findIndex(x => x.id === g.id);
+      if (i >= 0) arr[i] = g; else arr.push(g);
+      msg = syncGradeApproval(cid);
+    });
+    toastAfter(msg || (ed.gid ? "Avaliação atualizada." : "Avaliação adicionada."));
+    document.getElementById("grAdd")?.focus({ preventScroll: true });
+  };
+  document.getElementById("grSave").onclick = save;
+  document.getElementById("grCancel").onclick = () => { ui.gradeEdit = null; redraw(); };
+  form.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.tagName === "INPUT"){ e.preventDefault(); save(); } if (e.key === "Escape"){ e.stopPropagation(); ui.gradeEdit = null; redraw(); } });
+}
+// Mostra a mensagem sem apagar o aviso de disciplinas liberadas/bloqueadas que applyChange possa ter dado
+function toastAfter(msg){
+  const t = document.getElementById("toast");
+  const extra = t.classList.contains("show") && /^(Liberada|Voltou)/.test(t.textContent) ? " " + t.textContent : "";
+  toast(msg + extra, extra ? 6000 : 3000);
+}
+// Quadro "Notas do semestre" na aba Meu semestre
+function renderNotas(){
+  const body = document.getElementById("notasBody"); if (!body) return;
+  const ids = COURSES.filter(c => acad(c.id) === "doing" || state.grades[c.id]?.length).map(c => c.id);
+  const sumEl = document.getElementById("notasSummary");
+  if (!ids.length){
+    body.innerHTML = `<p class="small muted" style="margin:6px 0 0">Nenhuma disciplina em andamento. Marque "Em andamento" nas disciplinas que você está cursando para acompanhar as notas.</p>`;
+    sumEl.textContent = ""; return;
+  }
+  const cnt = { aprovado: 0, andamento: 0, reprovado: 0, erro: 0, vazio: 0 };
+  body.innerHTML = `<ul class="gr-list">${ids.map(id => {
+    const c = BY_ID.get(id), sm = gradeSummary(id), [lab, cls] = GRADE_ST[sm.status]; cnt[sm.status]++;
+    const det = sm.status === "vazio" ? "Nenhuma avaliação cadastrada" : sm.status === "erro" ? "Soma dos valores passa de 100"
+      : sm.status === "andamento" ? `Faltam ${fmtP(sm.falta)} pts; precisa de ${fmtP(sm.falta / sm.restante * 100)}% do que resta`
+      : sm.status === "reprovado" ? (sm.restante > 0 ? `Máximo possível: ${fmtP(sm.max)}` : "Nota final abaixo de 60")
+      : sm.completa ? "Nota final" : `Ainda há ${fmtP(sm.restante)} pts pendentes`;
+    return `<li class="gr-item">
+      <button class="linklike gr-item-nm" data-open="${id}" data-gfocus="gradesH">${esc(label(c))}</button>
+      <span class="gr-item-val"><strong>${sm.status === "vazio" ? "—" : fmtP(sm.nota)}</strong><span class="muted"> /100</span></span>
+      ${gradeBarHtml(sm, true)}
+      <span class="chip ${cls}">${lab}</span>
+      <span class="small muted gr-item-det">${det}</span>
+    </li>`; }).join("")}</ul>`;
+  sumEl.innerHTML = [`${ids.length} disciplina(s)`, cnt.aprovado ? `${cnt.aprovado} aprovada(s)` : "", cnt.andamento ? `${cnt.andamento} em andamento` : "",
+    cnt.reprovado ? `<span style="color:var(--warn)">${cnt.reprovado} reprovada(s)</span>` : ""].filter(Boolean).join(" · ");
+}
+
 /* ---------- Meus compromissos ---------- */
 function renderMineBox(){
   const box = document.getElementById("mineBox"); if (!box) return;
@@ -3873,7 +4172,7 @@ function init(){
   document.addEventListener("click", e => {
     if (e.target.closest("label.cb, input")) return;           // não confundir caixa com abrir detalhes
     const g = e.target.closest("[data-goto]"); if (g){ const t = document.getElementById(g.dataset.goto); if (t) t.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); return; }
-    const o = e.target.closest("[data-open]"); if (o){ if (o.dataset.open.startsWith("ev:")) openMineDlg(o.dataset.open.slice(3)); else openDrawer(o.dataset.open); return; }
+    const o = e.target.closest("[data-open]"); if (o){ if (o.dataset.open.startsWith("ev:")) openMineDlg(o.dataset.open.slice(3)); else { openDrawer(o.dataset.open); if (o.dataset.gfocus) document.getElementById(o.dataset.gfocus)?.scrollIntoView({ block: "start" }); } return; }
     const u = e.target.closest("[data-unplan]"); if (u){ togglePlan(u.dataset.unplan); return; }
     const p = e.target.closest("[data-plan]"); if (p){ addPlan([p.dataset.plan]); return; }
     const pnv = e.target.closest("[data-pernav]");
@@ -3905,7 +4204,7 @@ function init(){
   document.getElementById("btnImport").onclick = () => fi.click();
   fi.onchange = () => { if (fi.files[0]) importFile(fi.files[0]); fi.value = ""; };
   document.getElementById("btnClear").onclick = () => {
-    if (confirm(`Apagar o progresso da ${CURRICULUM.tag} (aprovações, disciplinas em andamento, planejamento, turmas escolhidas ou editadas e seus compromissos) neste navegador? As outras matrizes não serão alteradas. Esta ação não pode ser desfeita. Se quiser, exporte antes.`)){
+    if (confirm(`Apagar o progresso da ${CURRICULUM.tag} (aprovações, disciplinas em andamento, planejamento, turmas escolhidas ou editadas, notas e seus compromissos) neste navegador? As outras matrizes não serão alteradas. Esta ação não pode ser desfeita. Se quiser, exporte antes.`)){
       state = defaultState(); ui.focus = null; ui.batchUndo = null; document.getElementById("drawer").classList.remove("open");
       try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
       syncControls(); render(); toast("Progresso apagado.");
@@ -3922,6 +4221,7 @@ function init(){
       <h3>Marcar disciplinas</h3><p>Marque "Concluída com aprovação" nas disciplinas em que você foi aprovado. Só elas contam como requisito. Em "Marcar período como concluído" você marca o período inteiro de uma vez, com opção de desfazer.</p>
       <h3>Situação de cada disciplina</h3><p><b>Disponível</b>: pode cursar. <b>Matrícula conjunta</b>: precisa cursar junto com o correquisito. <b>Bloqueada</b>: falta requisito. <b>Cursando</b>: em andamento. Toque no nome para ver os requisitos.</p>
       <h3>Planejar o semestre</h3><p>Marque "Planejar matrícula" e veja em "Meu semestre" as turmas, a grade, os conflitos de horário e o PDF.</p>
+      <h3>Notas</h3><p>No painel de uma disciplina "Em andamento", cadastre as avaliações com o valor de cada uma (a soma fecha 100 pontos) e a nota que você tirou. O planejador mostra a nota acumulada, quanto falta para 60 e quanto você precisa no que resta. Quando todas as avaliações estiverem realizadas e a nota final for 60 ou mais, a disciplina é marcada como aprovada. A frequência mínima também conta na aprovação real.</p>
       <h3>Outro aparelho</h3><p>Em "Opções", use Exportar JSON e, no outro aparelho, Importar progresso. A sincronização não é automática.</p>
       <h3>Sobre esta matriz</h3><p>${esc(CURRICULUM.texts.obr)}</p><p>${esc(CURRICULUM.texts.opt.replace("{n}", nOpt))}</p>
       <p>Horários base: ${esc(BASE_TT.fonte)}. Aulas que acontecem só em algumas semanas mostram as datas; na grade, use o seletor "Semana" (aparece quando há aulas em datas específicas) para ver uma semana. Quando os horários forem atualizados, aparece o aviso "Alterações realizadas". Confira a oferta oficial antes da matrícula.</p>
