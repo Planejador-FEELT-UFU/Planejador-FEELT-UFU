@@ -552,6 +552,7 @@ dialog#ttDlg::backdrop{background:rgba(0,0,0,.45)}
 .wk-weekbar select{max-width:100%}
 .upd-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:var(--surface);color:var(--text);border:1px solid var(--accent);border-radius:8px;padding:8px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 4px 16px rgba(0,0,0,.2);max-width:calc(100% - 32px)}
 .upd-bar[hidden]{display:none}
+.stats.compact .stat.stat-note:nth-child(n){display:block}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #logoUfu,:root:not([data-theme="light"]) #logoFeelt{filter:brightness(0) invert(1) opacity(.92)}}
 :root[data-theme="dark"] #logoUfu,:root[data-theme="dark"] #logoFeelt{filter:brightness(0) invert(1) opacity(.92)}
 .plan-btns{display:flex;flex-wrap:wrap;gap:8px}
@@ -934,12 +935,12 @@ PLANNER_DATASETS.push({
     {n:53, p:8, name:"Acionamentos", t:30, pr:30, pre:[42], co:[]},
     {n:54, p:8, name:"Fontes Renováveis Não Convencionais: Técnicas e Aplicações", t:45, pr:15, pre:[23,49], co:[]},
     {n:55, p:8, name:"Análise de Sistemas Elétricos", t:45, pr:15, pre:[48], co:[]},
-    {n:56, p:8, name:"Processamento Digital de Sinais Aplicado a Sistemas Elétricos de Potência", t:30, pr:30, pre:[32], co:[]},
+    {n:56, p:8, name:"Processamento Digital de Sinais Aplicado a Sistemas Elétricos de Potência", t:45, pr:15, pre:[32], co:[]},
     {n:57, p:8, name:"Usinas e Subestações", t:45, pr:15, pre:[34,43], co:[]},
     {n:58, p:8, name:"Atividades Curriculares de Extensão IV", t:0, pr:90, pre:[], co:[], kind:"extensao"},
     // 9º período
     {n:59, p:9, name:"Tratativas Ambientais Aplicadas à Engenharia Elétrica", t:30, pr:15, pre:[], co:[], minH:2100},
-    {n:60, p:9, name:"Eficiência em Sistemas de Energia", t:45, pr:15, pre:[39,40], co:[]},
+    {n:60, p:9, name:"Eficiência em Sistemas de Energia", t:45, pr:15, pre:[42,39], co:[]},
     {n:61, p:9, name:"Proteção de Sistemas Elétricos", t:45, pr:15, pre:[55], co:[]},
     {n:62, p:9, name:"Qualidade da Energia Elétrica", t:45, pr:15, pre:[55], co:[]},
     {n:63, p:9, name:"Redes Elétricas Inteligentes", t:15, pr:15, pre:[39], co:[]},
@@ -980,7 +981,7 @@ PLANNER_DATASETS.push({
     {n:96, p:null, name:"Tópicos Especiais em Engenharia Elétrica V", t:60, pr:0, pre:[], co:[]},
     {n:97, p:null, name:"Transitórios Eletromagnéticos", t:45, pr:15, pre:[23], co:[]},
     {n:98, p:null, name:"Transmissão em Corrente Contínua", t:60, pr:0, pre:[49], co:[]},
-    {n:99, p:null, name:"Segurança em Instalações e Serviços de Eletricidade", t:60, pr:0, pre:[20], co:[]},
+    {n:99, p:null, name:"Segurança em Instalações e Serviços de Eletricidade", t:60, pr:0, pre:[40], co:[]},
     {n:100,p:null, name:"Veículos Elétricos e Híbridos", t:60, pr:0, pre:[42], co:[]},
     {n:101,p:null, name:"Engenharia Econômica", t:30, pr:0, pre:[], co:[]}
   ],
@@ -1168,9 +1169,9 @@ PLANNER_DATASETS.push({
   requirements: {
     optativasMinH: 120,
     extensaoMinH: 0,
-    aacH: 120,
-    totalH: 3750,
-    enade: false
+    aacH: 180,
+    totalH: 3810,
+    enade: true
   },
   texts: {
     obr: "Os “Componentes Curriculares Optativos I e II” (8º e 9º períodos, 4 h semanais cada, exigência de 2300 h) estão representados pelo mínimo de 120 h em optativas.",
@@ -1261,7 +1262,7 @@ PLANNER_DATASETS.push({
     {n:73, p:null, name:"Transitórios Eletromagnéticos", t:45, pr:15, pre:[], co:[], minH:2300},
     {n:74, p:null, name:"Transmissão em Corrente Contínua", t:60, pr:0, pre:[], co:[], minH:2300},
     {n:75, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia I", t:60, pr:0, pre:[], co:[], minH:2300},
-    {n:76, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia II", t:30, pr:30, pre:[], co:[], minH:2300},
+    {n:76, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia II", t:60, pr:0, pre:[], co:[], minH:2300},
     {n:77, p:null, name:"Tópicos Especiais em Engenharia Elétrica – Sistemas de Energia III", t:60, pr:0, pre:[], co:[], minH:2300},
     {n:78, p:null, name:"Aterramentos em Sistemas Elétricos", t:30, pr:30, pre:[], co:[], minH:2300},
     {n:79, p:null, name:"Manutenção em Sistemas Industriais", t:60, pr:0, pre:[], co:[], minH:2300}
@@ -1425,7 +1426,7 @@ PLANNER_DATASETS.push({
     extensaoMinH: 0,
     aacH: 120,
     totalH: 3855,
-    enade: false
+    enade: true
   },
   texts: {
     obr: "Os “Componentes Curriculares Optativos I e II” (7º e 9º períodos, 4 h semanais cada, exigência de 2000 h) estão representados pelo mínimo de 120 h em optativas.",
@@ -1489,7 +1490,7 @@ PLANNER_DATASETS.push({
     // 7º período
     {n:49, p:7, name:"Projeto Interdisciplinar para Controle e Automação", t:0, pr:30, pre:[], co:[], minH:2300},
     {n:50, p:7, name:"Firmware e Hardware de Dispositivos Industriais", t:30, pr:30, pre:[], co:[]},
-    {n:51, p:7, name:"CLPs e Dispositivos Industriais", t:60, pr:30, pre:[], co:[]},
+    {n:51, p:7, name:"Controladores Lógicos Programáveis (CLPs) e Dispositivos Industriais", t:60, pr:30, pre:[], co:[]},
     {n:52, p:7, name:"Redes Industriais para Controle e Automação I", t:60, pr:15, pre:[], co:[]},
     {n:53, p:7, name:"Controle Aplicado em Automação de Processos Contínuos", t:45, pr:30, pre:[], co:[]},
     // 8º período
@@ -1504,7 +1505,7 @@ PLANNER_DATASETS.push({
     {n:62, p:9, name:"Administração", t:60, pr:0, pre:[], co:[], minH:1600},
     {n:63, p:9, name:"Ciências Econômicas", t:60, pr:0, pre:[], co:[], minH:1600},
     {n:64, p:9, name:"Ciências Sociais e Jurídicas", t:60, pr:0, pre:[], co:[], minH:1600},
-    {n:65, p:9, name:"TCC para Controle e Automação", t:0, pr:30, pre:[], co:[], minH:2800},
+    {n:65, p:9, name:"Trabalho de Conclusão de Curso (TCC) para Controle e Automação", t:0, pr:30, pre:[], co:[], minH:2800},
     // 10º período
     {n:67, p:10, name:"Estágio Obrigatório para Controle e Automação", t:0, pr:180, pre:[], co:[], minH:2300},
     // Componentes curriculares optativos
@@ -1564,7 +1565,7 @@ PLANNER_DATASETS.push({
     extensaoMinH: 0,
     aacH: 180,
     totalH: 3810,
-    enade: false
+    enade: true
   },
   texts: {
     obr: "Os “Componentes Curriculares Optativos I e II” (6º e 7º períodos, 4 h semanais cada, exigência de 2000 h) estão representados pelo mínimo de 120 h em optativas.",
@@ -1816,11 +1817,11 @@ PLANNER_DATASETS.push({
     extensaoMinH: 345,
     aacH: 90,
     totalH: 3450,
-    enade: false
+    enade: true
   },
   texts: {
     obr: "Atividades Curriculares de Extensão I a IV e o Memorial somam 345 h. A Atividade de Conclusão de Curso (coluna \"Multi-Período\", exige 1875 h) aparece no 8º período.",
-    opt: "O fluxograma 2026-1 não lista as disciplinas optativas, apenas o bloco \"Disciplinas Optativas\" com 90 h. Informe as horas de optativas cursadas em \"Seu progresso\"."
+    opt: "{n} optativas: as 8 da \"Seleção de Optativas\" do PPC 2026-1 e as que vierem na planilha de oferta. O PPC exige 90 h de optativas; optativas de outras unidades podem ser informadas em \"Seu progresso\"."
   },
   courses: [
     // 1º período
@@ -1828,20 +1829,20 @@ PLANNER_DATASETS.push({
     {n:2, p:1, name:"Geometria Analítica", t:60, pr:0, pre:[], co:[]},
     {n:3, p:1, name:"Introdução à Engenharia de Computação", t:30, pr:0, pre:[], co:[]},
     {n:4, p:1, name:"Introdução à Prototipagem Eletrônica", t:0, pr:30, pre:[], co:[]},
-    {n:5, p:1, name:"Lógica e Matemática Discreta", t:45, pr:0, pre:[], co:[]},
+    {n:5, p:1, name:"Lógica e Matemática Discreta para Computação", t:45, pr:0, pre:[], co:[]},
     {n:6, p:1, name:"Programação Script", t:30, pr:30, pre:[], co:[]},
     // 2º período
     {n:7, p:2, name:"Álgebra Linear", t:45, pr:0, pre:[2], co:[]},
     {n:8, p:2, name:"Cálculo Diferencial e Integral II", t:90, pr:0, pre:[1], co:[]},
-    {n:9, p:2, name:"Física Básica: Mecânica", t:60, pr:0, pre:[1], co:[10]},
+    {n:9, p:2, name:"Física Básica: Mecânica", t:60, pr:0, pre:[1], co:[]},
     {n:10, p:2, name:"Experimental de Física Básica: Mecânica", t:0, pr:30, pre:[], co:[9]},
     {n:11, p:2, name:"Metrologia", t:30, pr:30, pre:[], co:[]},
     {n:12, p:2, name:"Programação Procedimental", t:30, pr:30, pre:[6], co:[]},
-    {n:13, p:2, name:"Sistemas Digitais", t:30, pr:0, pre:[5], co:[14]},
+    {n:13, p:2, name:"Sistemas Digitais", t:30, pr:0, pre:[5], co:[]},
     {n:14, p:2, name:"Experimental de Sistemas Digitais", t:0, pr:30, pre:[], co:[13]},
     // 3º período
     {n:15, p:3, name:"Cálculo Diferencial e Integral III", t:90, pr:0, pre:[8], co:[]},
-    {n:16, p:3, name:"Física Básica: Eletricidade e Magnetismo", t:60, pr:0, pre:[9], co:[17]},
+    {n:16, p:3, name:"Física Básica: Eletricidade e Magnetismo", t:60, pr:0, pre:[9], co:[]},
     {n:17, p:3, name:"Experimental de Física Básica: Eletricidade e Magnetismo", t:0, pr:30, pre:[], co:[16]},
     {n:18, p:3, name:"Elementos de Sistemas Computacionais", t:60, pr:0, pre:[13], co:[]},
     {n:19, p:3, name:"Estrutura de Dados", t:60, pr:0, pre:[12], co:[]},
@@ -1854,13 +1855,13 @@ PLANNER_DATASETS.push({
     {n:25, p:4, name:"Análise de Algoritmos", t:60, pr:0, pre:[19], co:[]},
     {n:26, p:4, name:"Arquitetura e Organização de Computadores", t:60, pr:0, pre:[18], co:[]},
     {n:27, p:4, name:"Banco de Dados", t:15, pr:45, pre:[19], co:[]},
-    {n:28, p:4, name:"Circuitos Elétricos I", t:75, pr:0, pre:[16], co:[29]},
+    {n:28, p:4, name:"Circuitos Elétricos I", t:75, pr:0, pre:[16], co:[]},
     {n:29, p:4, name:"Experimental de Circuitos Elétricos I", t:0, pr:15, pre:[11], co:[28]},
     {n:30, p:4, name:"Atividades Curriculares de Extensão I", t:0, pr:90, pre:[], co:[], kind:"extensao"},
     // 5º período
     {n:31, p:5, name:"Cálculo Numérico", t:60, pr:0, pre:[7, 15], co:[]},
     {n:32, p:5, name:"Empreendedorismo e Inovação", t:30, pr:0, pre:[], co:[]},
-    {n:33, p:5, name:"Eletrônica Analógica I", t:60, pr:0, pre:[28], co:[34]},
+    {n:33, p:5, name:"Eletrônica Analógica I", t:60, pr:0, pre:[28], co:[]},
     {n:34, p:5, name:"Experimental de Eletrônica Analógica I", t:0, pr:30, pre:[], co:[33]},
     {n:35, p:5, name:"Engenharia de Software", t:45, pr:0, pre:[22, 27], co:[]},
     {n:36, p:5, name:"Fundamentos da Inteligência Artificial", t:30, pr:15, pre:[23], co:[]},
@@ -1870,7 +1871,7 @@ PLANNER_DATASETS.push({
     {n:39, p:6, name:"Aprendizagem de Máquina", t:30, pr:15, pre:[31, 36], co:[]},
     {n:40, p:6, name:"Processamento Digital de Sinais", t:45, pr:15, pre:[24], co:[]},
     {n:41, p:6, name:"Redes de Comunicações I", t:45, pr:15, pre:[37], co:[]},
-    {n:42, p:6, name:"Sistemas Embarcados I", t:45, pr:30, pre:[26, 33, 37], co:[]},
+    {n:42, p:6, name:"Sistemas Embarcados I", t:45, pr:30, pre:[33, 37], co:[]},
     {n:43, p:6, name:"Teoria da Computação", t:45, pr:0, pre:[25], co:[]},
     {n:44, p:6, name:"Atividades Curriculares de Extensão III", t:0, pr:75, pre:[38], co:[], kind:"extensao"},
     // 7º período
@@ -1887,7 +1888,16 @@ PLANNER_DATASETS.push({
     {n:54, p:8, name:"IA Aplicada à Cibersegurança", t:45, pr:0, pre:[45, 47], co:[]},
     {n:55, p:8, name:"Sistemas Distribuídos", t:45, pr:0, pre:[41], co:[]},
     {n:56, p:8, name:"Memorial de Atividades Curriculares de Extensão", t:0, pr:30, pre:[50], co:[], kind:"extensao"},
-    {n:58, p:8, name:"Atividade de Conclusão de Curso", t:0, pr:300, pre:[], co:[], minH:1875}
+    {n:58, p:8, name:"Atividade de Conclusão de Curso", t:0, pr:300, pre:[], co:[], minH:1875},
+    // Optativas: "Seleção de Optativas" do PPC 2026-1 (Quadro 9.23, p. 51). Novas optativas entram pela planilha de oferta.
+    {n:60, p:null, name:"Computação Evolutiva", t:30, pr:15, pre:[36], co:[]},
+    {n:61, p:null, name:"Computação Gráfica RV-RA", t:30, pr:15, pre:[7], co:[]},
+    {n:62, p:null, name:"Eletrônica Analógica II", t:60, pr:0, pre:[33], co:[]},
+    {n:63, p:null, name:"Experimental de Eletrônica Analógica II", t:0, pr:30, pre:[], co:[62]},
+    {n:64, p:null, name:"Língua Brasileira de Sinais – LIBRAS I", t:30, pr:30, pre:[], co:[]},
+    {n:65, p:null, name:"Projetos de Hardware e Firmware para IoT", t:0, pr:45, pre:[42], co:[]},
+    {n:66, p:null, name:"Robótica", t:45, pr:15, pre:[49], co:[]},
+    {n:67, p:null, name:"Sistemas Embarcados II", t:30, pr:30, pre:[42], co:[]}
   ],
   // Interpretações adotadas (documentação dos dados; não exibidas na tela)
   notes: [
@@ -1964,6 +1974,10 @@ const DEPENDENTS = new Map();      // "C19" -> [{id, type:"pre"|"co"}]
   Todos os grupos precisam ser atendidos (E); dentro de um grupo basta
   UMA disciplina concluída (OU). Um número simples vira grupo de 1.
 */
+// Optativas aprovadas depois do PPC, incluídas pelo script a partir da planilha de oferta
+const EXTRA_OPT = (window.PLANNER_HORARIOS?.matrizes?.[DS.id]?.optativas_extra || []).filter(o => o && Number.isInteger(o.n) && o.name);
+for (const o of EXTRA_OPT) if (!CURRICULUM.courses.some(c => c.n === o.n))
+  CURRICULUM.courses.push({ n: o.n, p: null, name: o.name, t: o.t ?? null, pr: o.pr ?? null, pre: [], co: [], kind: "optativa", extra: true });
 (function prepare(){
   for (const raw of CURRICULUM.courses){
     const id = "C" + raw.n;
@@ -1982,7 +1996,8 @@ const DEPENDENTS = new Map();      // "C19" -> [{id, type:"pre"|"co"}]
       pr: Number.isFinite(raw.pr) ? raw.pr : null,
       preGroups,
       co: (raw.co || []).map(x => "C" + x),
-      minH: raw.minH ?? null
+      minH: raw.minH ?? null,
+      extra: !!raw.extra
     };
     c.total = (c.t != null && c.pr != null) ? c.t + c.pr : null;
     c.section = c.kind === "optativa" ? "opt" : "obr";   // extensão é obrigatória
@@ -2341,6 +2356,8 @@ function renderStats({ctx}){
     <div class="stat"><div class="lbl">Horas p/ requisitos de carga horária</div>
       <div class="val">${ctx.hours} h</div><div class="thresholds">${thr}</div>
       ${state.settings.doingAsDone && ctx.hours !== realHours ? `<div class="small muted">Inclui disciplinas em andamento (simulação). Real: ${realHours} h.</div>` : ""}</div>
+    <div class="stat stat-note"><div class="lbl">Enade</div>
+      <div class="small">Componente curricular obrigatório (ingressante e concluinte), sem carga horária. Não é disciplina: a inscrição é feita pela coordenação e a situação regular é exigida para colar grau.</div></div>
     <div class="stat"><div class="lbl">Situação agora</div>
       <div class="small"><strong>${nAvail}</strong> disponíveis · <strong>${nConj}</strong> por matrícula conjunta · <strong>${nBlock}</strong> bloqueadas</div>
       ${nInc ? `<div class="small" style="color:var(--warn);margin-top:4px">${nInc} conclusão(ões) com pré-requisito não marcado. <button class="linklike" id="showInc">Revisar</button></div>` : ""}</div>`;
@@ -2641,6 +2658,7 @@ function showDialog(dlg){
 }
 
 function explanation(c, e){
+  if (c.extra && e.status === "disponivel") return "Optativa incluída a partir da planilha de oferta. Os requisitos não constam no PPC da matriz: confirme com a coordenação antes de se matricular.";
   const fails = e.reasons.filter(r => r.ok === false).map(r => r.text);
   const doingNote = state.settings.doingAsDone ? " A simulação \"em andamento como aprovadas\" está ativa, então ela já conta para liberar outras." : " Ela ainda não conta como requisito cumprido.";
   const inc = inconsistency(c);
@@ -2662,7 +2680,7 @@ function renderDrawer(id, {ev}){
   const e = ev.get(id), s = acad(id), planned = state.plan.includes(id);
   const reqList = e.reasons.length
     ? `<ul class="reqs">${e.reasons.map(r => `<li class="${r.ok===true?"yes":r.ok===false?"no":"unk"}"><span class="mk" aria-hidden="true">${r.ok===true?"✓":r.ok===false?"✗":"?"}</span><span><span class="sr-only">${r.ok===true?"Atendido: ":r.ok===false?"Não atendido: ":"Pendente: "}</span>${r.ref ? `<button class="linklike" data-open="${r.ref}">${esc(r.text)}</button>` : esc(r.text)}</span></li>`).join("")}</ul>`
-    : `<p class="small">Sem requisitos indicados no fluxograma.</p>`;
+    : c.extra ? `<p class="small note-box">Optativa incluída a partir da planilha de oferta (não consta no PPC da matriz). Os requisitos não são informados: confirme com a coordenação.</p>` : `<p class="small">Sem requisitos indicados no fluxograma.</p>`;
   const deps = DEPENDENTS.get(id) || [];
   const depHtml = deps.length ? `<div class="deps">${deps.map(d => { const dc = BY_ID.get(d.id); return `<button class="btn small" data-open="${d.id}">${dc.n} – ${esc(dc.name)}${d.type==="co"?" (correquisito)":""}${dc.section==="opt"?" · optativa":""}</button>`; }).join("")}</div>`
     : `<p class="small muted">Nenhuma disciplina depende diretamente desta.</p>`;
