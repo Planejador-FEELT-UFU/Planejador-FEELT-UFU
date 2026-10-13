@@ -3281,7 +3281,7 @@ function updatePdfDialog(){
 function buildPrint(filter){
   const { events, missingNone, missingPending, conflicts } = collectWeek(filter, null, "", true);
   if (!events.length) return false;
-  const PAGE_W = 277, PAGE_H = 190, TIME_W = 14, DAYHEAD = 7, HEAD1 = 27, HEADN = 11;
+  const PAGE_W = 277, PAGE_H = 190, TIME_W = 14, DAYHEAD = 7, HEAD1 = 16, HEADN = 7;
   const days = daysFor(events);
   const colW = (PAGE_W - TIME_W) / days.length;
   for (const d of days) assignLanes(events.filter(e => e.day === d.v));
@@ -3315,23 +3315,16 @@ function buildPrint(filter){
     if (bnd <= cur) bnd = maxEnd;
     chunks.push([cur, bnd]); cur = bnd;
   }
-  const filtroTxt = WEEK_FILTERS[filter];
-  const sem = (state.semester || "").trim();
-  const gen = new Date().toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
-  const legend = `${events.some(e => e.mine) ? `<span class="pr-key pr-mine" style="--evc:#1b8a5a">COMPROMISSO</span> ` : ""}<span class="pr-key pr-plan">PLANEJADA</span> <span class="pr-key pr-doing">EM ANDAMENTO</span> <span class="pr-key pr-conf">CONFLITO</span>`;
-  const nPend = missingNone.length + missingPending.length;
   let out = "";
   chunks.forEach(([cs, ce], pi) => {
     const H = (ce - cs) * scale;
     const head = pi === 0
       ? `<div class="pr-head" style="height:${HEAD1}mm">
           <div class="pr-logos"><img src="${document.getElementById("logoUfu").src}" alt="UFU"><img src="${document.getElementById("logoFeelt").src}" alt="FEELT"></div>
-          <div class="pr-uni">Universidade Federal de Uberlândia · ${esc(CURRICULUM.short)} · Matriz ${CURRICULUM.matriz}</div>
-          <h1>Planejamento semanal de aulas</h1>
-          <div class="pr-meta">${sem ? `Semestre de referência: <strong>${esc(sem)}</strong> · ` : ""}Filtro: <strong>${esc(filtroTxt)}</strong> · Horários base: ${esc(TT_SRC)} com as edições do estudante · Gerado em ${esc(gen)}</div>
-          <div class="pr-meta">Legenda: ${legend}${conflicts.length ? ` · <strong>${conflicts.length} conflito(s) de horário</strong>` : ""}${nPend ? ` · ${nPend} disciplina(s) sem horário ou com turma pendente` : ""} · Detalhes na última página</div>
+          <div class="pr-uni">Universidade Federal de Uberlândia</div>
+          <h1>${esc(CURRICULUM.short)}</h1>
         </div>`
-      : `<div class="pr-head" style="height:${HEADN}mm"><div class="pr-meta"><strong>Planejamento semanal de aulas</strong>${sem ? ` · ${esc(sem)}` : ""} · ${esc(filtroTxt)} · continuação (${fmtMin(cs)}–${fmtMin(ce)}) · Legenda: ${legend}</div></div>`;
+      : `<div class="pr-head" style="height:${HEADN}mm"><div class="pr-uni">Universidade Federal de Uberlândia · ${esc(CURRICULUM.short)}</div></div>`;
     let tl = "";
     if (cs % 60) tl += `<div class="pr-tl" style="top:0mm">${fmtMin(cs)}</div>`;
     for (let h = Math.ceil(cs / 60) * 60; h < ce; h += 60) tl += `<div class="pr-tl" style="top:${(h - cs) * scale}mm">${fmtMin(h)}</div>`;
